@@ -20,8 +20,8 @@ import br.edu.ifsp.arq.dw2s6.bookabook.domain.model.Review;
 import br.edu.ifsp.arq.dw2s6.bookabook.domain.model.User;
 import br.edu.ifsp.arq.dw2s6.bookabook.repository.UserRepository;
 import br.edu.ifsp.arq.dw2s6.bookabook.service.UserService;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.validation.Valid;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
