@@ -1,13 +1,24 @@
 package br.edu.ifsp.arq.dw2s6.bookabook.domain.model;
 
+import java.util.List;
+import java.util.Objects;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "user")
@@ -26,6 +37,9 @@ public class User {
      private String password;
      @NotNull
      private Boolean active; 
+     @ManyToMany(fetch = FetchType.EAGER) // fetch = buscar - eager = ancioso
+ 	@JoinTable(name = "user_permission", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_permission"))
+ 	private List<Permission> permissions;
      
 	 public Long getId() {
 		return id;
