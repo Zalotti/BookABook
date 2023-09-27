@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +37,7 @@ public class UserResource {
 	//Retorna todos usuários
 	//GET
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_SEARCH_USER') and #oauth2.hasScope('read')")
 	public List<User> list(){
 		return userRepository.findAll();
 	}
@@ -50,12 +52,14 @@ public class UserResource {
     //"active": true
     //}
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_REGISTER_USER') and #oauth2.hasScope('write')")
 	public User create(@RequestBody User user, HttpServletResponse response) {
 		return userRepository.save(user);
 	}
 	
 	//Buscar Usuário por Id
 	@GetMapping("/{id}")
+	@PreAuthorize("hasAuthority('ROLE_SEARCH_USER') and #oauth2.hasScope('read')")
 	public ResponseEntity<User> findById(@PathVariable Long id){
 		Optional<User> user = userRepository.findById(id);
 		if(user.isPresent()) {
@@ -66,6 +70,7 @@ public class UserResource {
 	
 	//Deleta Usuário por Id
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasAuthority('ROLE_REMOVE_USER') and #oauth2.hasScope('write')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remove(@PathVariable Long id) {
 		userRepository.deleteById(id);
@@ -74,6 +79,7 @@ public class UserResource {
 	
 	//Atualiza Usuário por Id
 	@PutMapping("/{id}")
+	@PreAuthorize("hasAuthority('ROLE_REGISTER_USER') and #oauth2.hasScope('write')")
 	public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User user) {
 		User userSaved = userService.update(id, user);
 		return ResponseEntity.ok(userSaved);

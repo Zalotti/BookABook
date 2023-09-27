@@ -21,9 +21,9 @@ INSERT INTO permission (id, description) values (2, 'ROLE_REMOVE_USER');
 INSERT INTO permission (id, description) values (3, 'ROLE_SEARCH_USER');
 
 -- activity
-INSERT INTO permission (id, description) values (4, 'ROLE_REGISTER_ACTIVITY');
-INSERT INTO permission (id, description) values (5, 'ROLE_REMOVE_ACTIVITY');
-INSERT INTO permission (id, description) values (6, 'ROLE_SEARCH_ACTIVITY');
+INSERT INTO permission (id, description) values (4, 'ROLE_REGISTER_REVIEW');
+INSERT INTO permission (id, description) values (5, 'ROLE_REMOVE_REVIEW');
+INSERT INTO permission (id, description) values (6, 'ROLE_SEARCH_REVIEW');
 
 -- admin
 INSERT INTO user_permission (id_user, id_permission) values (3, 1);
