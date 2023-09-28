@@ -35,6 +35,7 @@ public class ReviewResource {
 	//Retorna todas reviews
 	//GET
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_SEARCH_REVIEW') and #oauth2.hasScope('read')")
 	public List<Review> list(){
 		return reviewRepository.findAll();
 	}
@@ -42,12 +43,14 @@ public class ReviewResource {
 	//Cria Review
 	//POST
 		@PostMapping
+		@PreAuthorize("hasAuthority('ROLE_REGISTER_REVIEW') and #oauth2.hasScope('write')")
 		public Review create(@RequestBody Review review, HttpServletResponse response) {
 			return reviewRepository.save(review);
 		}
 		
 		//Buscar Review por Id
 		@GetMapping("/{id}")
+		@PreAuthorize("hasAuthority('ROLE_SEARCH_REVIEW') and #oauth2.hasScope('read')")
 		public ResponseEntity<Review> findById(@PathVariable Long id){
 			Optional<Review> review = reviewRepository.findById(id);
 			if(review.isPresent()) {
@@ -59,6 +62,7 @@ public class ReviewResource {
 		//Deleta Review por Id
 		@DeleteMapping("/{id}")
 		@ResponseStatus(HttpStatus.NO_CONTENT)
+		@PreAuthorize("hasAuthority('ROLE_REMOVE_REVIEW') and #oauth2.hasScope('write')")
 		public void remove(@PathVariable Long id) {
 			reviewRepository.deleteById(id);
 		}
