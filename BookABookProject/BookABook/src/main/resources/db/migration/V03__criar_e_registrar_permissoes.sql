@@ -12,7 +12,8 @@ CREATE TABLE user_permission (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- admin
-INSERT INTO user (id, name, email, password, age, gender, active) values (3, 'Administrador', 'admin@bookabook.com', '$1$.aEB.8Mo$d60NRwv/sRaLMF3s7aD1M0', 23, 'MASCULINO', 1);
+-- senha:8383
+INSERT INTO user (id, name, email, password, active_user) values (3, 'Administrador', 'admin@bookabook.com', '$1$Puh0374f$Z4yGJe9SpqYiXFlgqYsNO0', 1);
 
 -- user
 INSERT INTO permission (id, description) values (1, 'ROLE_REGISTER_USER');

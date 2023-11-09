@@ -36,7 +36,7 @@ public class User {
 	 @NotNull
      private String password;
      @NotNull
-     private Boolean active; 
+     private Boolean active_user; 
      @ManyToMany(fetch = FetchType.EAGER) // fetch = buscar - eager = ancioso
  	@JoinTable(name = "user_permission", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_permission"))
  	private List<Permission> permissions;
@@ -74,11 +74,11 @@ public class User {
 	}
 	
 	public Boolean isActive() {
-		return active;
+		return active_user;
 	}
 	
 	public void setActive(Boolean active) {
-		this.active = active;
+		this.active_user = active;
 	}
 	
 	@Override
