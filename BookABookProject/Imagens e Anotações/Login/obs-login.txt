@@ -1,6 +1,0 @@
-As fontes utilizadas foram Cambria Math.
-
-Cores 
-
-Hexa da parte exterior: 583d82
-Hexa do botão de login: 323f7a - Utilizar o mesmo para o "Cadastre-se aqui!"
