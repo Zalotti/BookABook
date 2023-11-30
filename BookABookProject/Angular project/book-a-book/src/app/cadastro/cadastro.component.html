@@ -1,0 +1,51 @@
+<body>
+  <header>
+    <mat-toolbar>
+      <div class="imagem-book"></div>
+      <span class="spanbook">BookABook</span>
+    </mat-toolbar>
+  </header>
+
+  <div class="card">
+    <form class="content__form">
+      <p class="txtLogin"><strong>Cadastrar-se</strong></p>
+      <p class="txtSpan">Utilize suas credenciais para concluir o cadastro</p>
+      <div class="input">
+        <div class="content__inputs">
+          <!-- Campo de Email -->
+          <label>
+            <input required="" type="text" name="email" />
+            <span>Insira seu &#64;Email</span>
+          </label>
+
+          <!-- Campo de Senha -->
+          <label>
+            <input required="" type="password" name="senha" />
+            <span>Digite sua Senha</span>
+          </label>
+
+          <!-- Confirmação de Senha -->
+          <label>
+            <input required="" type="password" name="confirmarSenha" />
+            <span>Confirme sua Senha</span>
+          </label>
+        </div>
+        <div class="content__buttons">
+          <!-- Botão de Cadastro -->
+          <button class="button_login" routerLink="/login">Cadastrar-se</button>
+
+          <!-- Botão de Redirecionamento para a página de login -->
+          <button class="button_cadastro" routerLink="/login">
+            Já possui uma conta? Fazer login
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <div class="rodape">
+      <span>&copy; BookABook. Todos os direitos reservados.</span>
+    </div>
+  </footer>
+</body>
