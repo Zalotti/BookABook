@@ -1,0 +1,60 @@
+<!-- review-list.component.html -->
+
+<body>
+  <header>
+    <mat-toolbar>
+      <div class="imagem-book"></div>
+      <span class="spanbook">BookABook</span>
+    </mat-toolbar>
+  </header>
+
+  <!-- Botão para adicionar uma review -->
+  <div class="add-review">
+    <button class="review" (click)="openReviewForm()">Adicionar review</button>
+  </div>
+
+  <!-- Seção para exibir as reviews -->
+  <div class="reviews-container">
+    <div *ngFor="let review of reviews" class="card">
+      <!-- Seção do usuário -->
+      <div class="user">
+        <div class="user-image">
+          <!-- Imagem do usuário -->
+          <img
+            src="http://dashboard.olucaro.com/olucarodashboard/assets/profiles/user_male_portrait.png"
+            alt="Imagem do usuário"
+          />
+        </div>
+
+        <div class="user-text">
+          <!-- Nome do usuário ou Nickname -->
+          <p>&#64;{{ review.nickname }}</p>
+        </div>
+      </div>
+
+      <!-- Seção de review -->
+      <div class="review-container">
+        <!-- Imagem do livro -->
+        <div class="book-image">
+          <img
+            [src]="review.bookImage"
+            alt="{{ review.bookTitle }}"
+          />
+        </div>
+
+        <!-- Conteúdo da review -->
+        <div class="card-content">
+          <!-- Título do livro -->
+          <h1>{{ review.bookTitle }}</h1>
+          <!-- Texto da review -->
+          <p>{{ review.reviewText }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caso não haja reviews -->
+    <div *ngIf="reviews.length === 0">
+      <p>Nenhuma review disponível.</p>
+    </div>
+  </div>
+</body>
