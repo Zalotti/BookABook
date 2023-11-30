@@ -1,11 +1,11 @@
 
 .popup-container {
-  width: 800px; /* Ajuste conforme necessário */
+  width: 800px; 
 }
 
 .popup-form {
   max-height: 90vh; 
-  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+  overflow-y: auto; 
 }
 
 form {
@@ -28,6 +28,24 @@ input[type="file"] {
   margin-bottom: 15px;
 }
 
+
+.avaliacao{
+  display: flex;
+  position: relative;
+}
+
+.txtAvaliacao{
+  font-size: medium;
+  color: rgb(80, 80, 80);
+}
+
+.estrelas{
+  flex: 1;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+
 .enviar {
   background: #323f7a;
   color: white;
@@ -38,6 +56,8 @@ input[type="file"] {
   padding: 7px 16px;
   cursor: pointer;
 }
+
+
 
 .enviar:hover {
   background: #583d82;

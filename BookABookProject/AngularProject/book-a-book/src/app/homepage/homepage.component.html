@@ -13,48 +13,47 @@
     <button class="review" (click)="openReviewForm()">Adicionar review</button>
   </div>
 
-  <!-- Seção para exibir as reviews -->
+
+
+  <!-- Seção para exibir as reviews com paginação -->
   <div class="reviews-container">
-    <div *ngFor="let review of reviews" class="card">
+    <div *ngFor="let review of pagedReviews | paginate: { itemsPerPage: 3, currentPage: p }" class="card">
       <!-- Seção do usuário -->
       <div class="user">
-        <div class="user-image">
-          <!-- Imagem do usuário -->
-          <img
-            src="http://dashboard.olucaro.com/olucarodashboard/assets/profiles/user_male_portrait.png"
-            alt="Imagem do usuário"
-          />
-        </div>
-
         <div class="user-text">
           <!-- Nome do usuário ou Nickname -->
-          <p>&#64;{{ review.nickname }}</p>
+          <p>&#64;{{ review.nickname }} - {{ review.reviewDate | date }}</p>
         </div>
       </div>
 
-      <!-- Seção de review -->
-      <div class="review-container">
-        <!-- Imagem do livro -->
-        <div class="book-image">
-          <img
-            [src]="review.bookImage"
-            alt="{{ review.bookTitle }}"
-          />
-        </div>
+    <!-- Seção de review -->
+    <div class="review-container">
 
-        <!-- Conteúdo da review -->
-        <div class="card-content">
-          <!-- Título do livro -->
-          <h1>{{ review.bookTitle }}</h1>
-          <!-- Texto da review -->
-          <p>{{ review.reviewText }}</p>
-        </div>
+      <!-- Imagem do livro -->
+      <div class="book-image">
+        <img [src]="review.bookImage" alt="{{ review.bookTitle }}" />
       </div>
-    </div>
 
-    <!-- Caso não haja reviews -->
-    <div *ngIf="reviews.length === 0">
-      <p>Nenhuma review disponível.</p>
+      <!-- Conteúdo da review -->
+      <div class="card-content">
+        <!-- Título do livro -->
+        <h1 class="titulo">{{ review.bookTitle }}</h1>
+        <!-- Gênero do livro -->
+        <p class="genero">{{ review.genre }}</p>
+        <!-- Texto da review -->
+        <p class="reviewtxt">{{ review.reviewText }}</p>
+      </div>
     </div>
   </div>
+
+  <!-- Caso não haja reviews -->
+  <div *ngIf="reviews.length === 0">
+    <p>Nenhuma review disponível.</p>
+  </div>
+
+  <!-- Controles de paginação -->
+   <div class="pagination-controls-container">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
 </body>
