@@ -7,38 +7,34 @@
   </header>
 
   <div class="card">
-    <form class="content__form">
-
+    <form class="content__form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
       <div class="imagem-login"></div>
-
+    
       <p class="txtLogin"><strong>Login</strong></p>
       <p class="txtSpan">Utilize suas credenciais para continuar navegando</p>
       <div class="input">
         <div class="content__inputs">
-
           <!-- Campo de Email -->
           <label>
-            <input required="" type="text" name="email" />
+            <input type="text" formControlName="email" />
             <span>&#64;Email</span>
           </label>
-
+    
           <!-- Campo de Senha -->
           <label>
-            <input required="" type="password" name="senha" />
+            <input type="password" formControlName="senha" />
             <span>Senha</span>
           </label>
         </div>
-
+    
         <div class="content__buttons">
-          
           <!-- Botão de Login -->
-          <button class="button_login" routerLink="/homepage">Login</button>
-
+          <button class="button_login" type="submit">Login</button>
+    
           <!-- Botão de Redirecionamento para a página de cadastro -->
           <button class="button_cadastro" routerLink="/cadastro">
             Não possui uma conta? Cadastrar-se
           </button>
-
         </div>
       </div>
     </form>

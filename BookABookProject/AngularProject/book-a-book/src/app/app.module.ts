@@ -16,6 +16,11 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 import { ReviewService } from './reviewService'; // remover depois
 
@@ -42,6 +47,10 @@ import { ReviewService } from './reviewService'; // remover depois
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
+    NgxPaginationModule,
+    ReactiveFormsModule,
+
 
   ],
 
