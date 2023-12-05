@@ -21,14 +21,31 @@ public class ReviewService {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
-	public Review update(Long id, Review task) {
-		Review taskSaved = reviewRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
-		BeanUtils.copyProperties(task, taskSaved, "id");
-		return reviewRepository.save(taskSaved);
+
+	//Lista Review por Usuário (E-mail)
+	public List<Review> listByUser(String email){
+		Optional<User> user = userRepository.findByEmail(email);
+		//Verifica se o Usuário Existe
+		if(user.isPresent()) {
+			return reviewRepository.findByUser(user.get());
+		}
+		return null;
+	}
+
+	//Lista Review por Id
+	public Review findReviewById(Long id) {
+		Review reviewSaved = reviewRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
+		return reviewSaved;
+	}
+
+	//Atualiza a Review
+	public Review update(Long id, Review review) {
+		Review reviewSaved = reviewRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
+		BeanUtils.copyProperties(review, reviewSaved, "id");
+		return reviewRepository.save(reviewSaved);
 	}
 	
-
+       //Salva a Review por Usuário
 	public Review save(Review review) {
 		Optional<User> user = userRepository.findById(review.getUser().getId());
 		if(!user.isPresent() || !user.get().isActive()) {
