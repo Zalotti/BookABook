@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,14 +18,14 @@ export class LoginComponent implements OnInit {
 
   msg: any;
   jwtPayload: any;
-  constructor(private fb: FormBuilder, private auth: AuthService,) {
+  constructor(private fb: FormBuilder, private auth: AuthService,private router: Router) {
     this.jwtPayload = this.auth.jwtPayload;
   }
 
   login(user: string, password: string) {
     this.auth.login(user, password)
     .then(() => {
-      this.msg = 'redirecionar para /reviews';
+      this.router.navigate(['/reviews']);
     })
     .catch(() => {
       this.msg = 'Usuário e/ou senha inválida!';

@@ -1,12 +1,46 @@
 // review.service.ts
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { AuthService } from '../security/auth.service';
+import { Review } from '../core/model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReviewService {
+
+  reviewsUrl = 'http://localhost:8080/reviews';
+  email: any;
+
+  constructor(private http: HttpClient, private auth: AuthService) { }
+
+  listByUser(): Promise<any> {
+    this.email = this.auth.jwtPayload?.user_name;
+    return this.http.get(`${this.reviewsUrl}/user/${this.email}`)
+      .toPromise()
+      .then(response => {
+        return response;
+      });
+  }
+  // lista todas do banco
+  list(): Promise<any> {
+    return this.http.get(`${this.reviewsUrl}`)
+      .toPromise()
+      .then(response => {
+        return response;
+      });
+  }
+
+  add(review: Review): Promise<Review> {
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/json');
+
+    return this.http.post<any>(this.reviewsUrl, Review.toJson(review), { headers })
+      .toPromise();
+  }
+
   getReviews(): Observable<any[]> {
     // Simula uma chamada à API e retorna dados fictícios
     const fakeReviews = [

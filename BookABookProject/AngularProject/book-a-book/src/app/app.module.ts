@@ -22,16 +22,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
-import { ReviewService } from './reviewService'; // remover depois
+import { ReviewService } from './reviews/review.service'; // remover depois
 import { SecurityModule } from './security/security.module';
 import { AuthService } from './security/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReviewsModule } from './reviews/reviews.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   // LoginComponent,
+    LoginComponent,
     CadastroComponent,
     HomepageComponent,
     ReviewFormComponent,
@@ -39,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
 
   imports: [
+    CoreModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -54,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgxPaginationModule,
     ReactiveFormsModule,
     SecurityModule,
+    ReviewsModule,
   ],
 
   providers: [

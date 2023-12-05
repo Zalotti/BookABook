@@ -17,15 +17,22 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return '';
-        }
+        tokenGetter,
+        allowedDomains: ['localhost:8080'],
+        disallowedRoutes: ['http://localhost:8080/oauth/token']
       }
-    }),
+    })
   ],
   exports: [LoginComponent],
   providers: [
     JwtHelperService,
   ],
+  
 })
 export class SecurityModule { }
+
+export function tokenGetter(): any {
+  return localStorage.getItem('token');
+}
+
+

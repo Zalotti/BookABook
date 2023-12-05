@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewFormComponent } from '../review-form/review-form.component';
-import { ReviewService } from '../reviewService';
+import { ReviewService } from '../reviews/review.service';
 
 @Component({
   selector: 'app-homepage',
