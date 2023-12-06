@@ -6,7 +6,7 @@ INSERT INTO user (id, name, email, password, active_user) values (6, 'Leonardo',
 INSERT INTO user (id, name, email, password, active_user) values (7, 'Donatello', 'dondon@ifsp.edu.br', '$1$ga14p2wj$fENYct9yUu5LUM1vBDtRb/', '1');
 INSERT INTO user (id, name, email, password, active_user) values (8, 'Arthur Regiani', 'artart@ifsp.edu.br', '$1$ga14p2wj$fENYct9yUu5LUM1vBDtRb/', '1');
 
---Permissões
+-- Permissões
 
 -- Michelangelo
 INSERT INTO user_permission (id_user, id_permission) values (4, 1);
