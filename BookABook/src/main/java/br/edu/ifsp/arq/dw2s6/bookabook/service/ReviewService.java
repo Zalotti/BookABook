@@ -23,6 +23,11 @@ public class ReviewService {
 	@Autowired
 	private UserRepository userRepository;
 
+        //Lista Todas Reviews   
+	public List<Review> getAllReviews() {
+	        return reviewRepository.findAll();
+	}
+
 	//Lista Review por Usuário (E-mail)
 	public List<Review> listByUser(String email){
 		Optional<User> user = userRepository.findByEmail(email);
