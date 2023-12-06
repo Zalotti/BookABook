@@ -9,6 +9,7 @@ import br.edu.ifsp.arq.dw2s6.bookabook.domain.model.User;
 
 public interface ReviewRepository extends JpaRepository<Review,Long>{
 
+  public List<Review> findAll();
   public List<Review> findByUser(User user);
 
 }
