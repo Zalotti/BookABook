@@ -1,8 +1,12 @@
 package br.edu.ifsp.arq.dw2s6.bookabook.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifsp.arq.dw2s6.bookabook.domain.model.User;
