@@ -3,10 +3,10 @@ package br.edu.ifsp.arq.dw2s6.bookabook.domain.model;
 public enum BookRate {
 
 	MUITO_BAIXA("Muito Baixa"),
-	BAIXA("BAIXA"),
-	MÉDIA("MÉDIA"),
-	ALTA("ALTA"),
-	MUITO_ALTA("MUITO ALTA");
+	BAIXA("Baixa"),
+	MÉDIA("Média"),
+	ALTA("Alta"),
+	MUITO_ALTA("Muito Alta");
 	
 private String rate;
 	
