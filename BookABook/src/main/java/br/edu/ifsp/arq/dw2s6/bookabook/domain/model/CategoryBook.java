@@ -3,15 +3,16 @@ package br.edu.ifsp.arq.dw2s6.bookabook.domain.model;
 public enum CategoryBook {
 	
 	FANTASIA("Fantasia"),
-	FICÇÃO("Ficção"),
+	FICCAO("Ficção"),
 	HORROR("Horror"),
 	SUSPENSE("Suspense"),
 	INFANTIL("Literatura Infantil"),
-	ACADÊMICO("Acadêmico"),
-	BIOGRÁFICO("Biografia"),
-	ROMANCE("ROMANCE"),
+	ACADEMICO("Acadêmico"),
+	BIOGRAFICO("Biografia"),
+	ROMANCE("Romance"),
 	HQ("HQ"),
-	NACIONAL("LITERATURA NACIONAL");
+	NACIONAL("Literatura Nacional"),
+	OUTROS("Outros");
 	
 	
 	private String category;
