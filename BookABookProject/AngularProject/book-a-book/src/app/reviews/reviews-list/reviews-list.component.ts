@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-// import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
-import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+//import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
+import { ErrorHandlerService } from '../../core/error-handler.service';
 import { ReviewService } from '../review.service';
 import { AuthService } from '../../security/auth.service';
 import{User} from 'src/app/core/model';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConfirmationService, MessageService } from 'primeng/api';
 @Component({
   selector: 'app-reviews-list',
   templateUrl: './reviews-list.component.html',
@@ -27,7 +30,10 @@ export class ReviewsListComponent {
     // private confirmation: ConfirmationService,
     //private messageService: MessageService,
     //private errorHandler: ErrorHandlerService,
+    private confirmation: ConfirmationService,
+    private messageService: MessageService,
     private title: Title,
+    private errorHandler: ErrorHandlerService,
     private auth: AuthService
   ){ }
 
@@ -40,7 +46,17 @@ export class ReviewsListComponent {
     this.reviewService.list()
       .then(result => {
         this.reviews = result;
-      });
+      })
+      .catch(error => this.errorHandler.handle(error));
+  }
+
+  confirmRemoval(review: any): void {    
+      this.confirmation.confirm({
+      message: 'Excluir permanentemente? Esta ação não pode ser desfeita.',
+      accept: () => {
+        this.remove(review);
+      }
+    });
   }
 
   search(page: number = 0): void {
@@ -61,22 +77,13 @@ export class ReviewsListComponent {
   //   this.search(page);
   // }
 
-  confirmRemoval(activity: any): void {
-    // this.confirmation.confirm({
-    //   message: 'Tem certeza que deseja excluir?',
-    //   accept: () => {
-    //     this.remove(activity);
-    //   }
-    // });
+  remove(review: any): void {
+    this.reviewService.remove(review.id)
+      .then(() => {
+        this.list();
+        this.messageService.add({ severity: 'success', detail: 'Review deletada.' });
+      })
+      .catch(error => this.errorHandler.handle(error));
   }
-
-  remove(activity: any): void {
-  //   this.activityService.remove(activity.id)
-  //     .then(() => {
-  //       this.search();
-  //       this.messageService.add({ severity: 'success', detail: 'Atividade excluída com sucesso!' });
-  //     })
-  //     .catch(error => this.errorHandler.handle(error));
-  // }
 }
 

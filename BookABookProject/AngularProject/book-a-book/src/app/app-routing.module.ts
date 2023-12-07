@@ -4,6 +4,7 @@ import { LoginComponent } from './security/login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReviewsListComponent } from './reviews/reviews-list/reviews-list.component';
+import { ReviewRegisterComponent } from './reviews/review-register/review-register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -11,6 +12,8 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   { path: 'homepage', component: HomepageComponent },
   { path: 'reviews', component: ReviewsListComponent},
+  { path: 'reviews/new', component: ReviewRegisterComponent },
+  { path: 'reviews/:id', component: ReviewRegisterComponent },
 ];
 
 @NgModule({

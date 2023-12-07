@@ -88,7 +88,7 @@
                 <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
                   [routerLink]="['/activities', activity.id]"></a>
                 <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
-                  (click)="confirmRemoval(activity)" [disabled]="!auth.hasPermission('ROLE_REMOVE_ACTIVITY')"></button>
+                (click)="confirmRemoval(activity)"></button>
               </td>
             </tr>
           </ng-template>
@@ -106,3 +106,9 @@
       </div>
     </div>
   </div> -->
+
+  <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                [routerLink]="['/reviews', review.id]"></a>
+  ...
+
+  <p><a pButton label="Nova Review" routerLink="/reviews/new"></a></p>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -61,6 +62,13 @@ public class ReviewResource {
 		@ResponseStatus(HttpStatus.NO_CONTENT)
 		public void remove(@PathVariable Long id) {
 			reviewRepository.deleteById(id);
+		}
+
+		@PutMapping("/{id}")
+		@PreAuthorize("hasAuthority('ROLE_REGISTER_ACTIVITY') and #oauth2.hasScope('write')")
+		public ResponseEntity<Review> update(@PathVariable Long id, @Valid @RequestBody Review review) {
+			Review reviewSaved = reviewService.update(id, review);
+			return ResponseEntity.ok(reviewSaved);
 		}
 		
 }

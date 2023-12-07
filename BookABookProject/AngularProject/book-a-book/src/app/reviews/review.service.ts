@@ -1,5 +1,5 @@
 // review.service.ts
-
+import moment from 'moment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -33,12 +33,49 @@ export class ReviewService {
       });
   }
 
+  update(review: Review): Promise<Review> {
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/json');
+
+    return this.http.put<Review>(`${this.reviewsUrl}/${review.id}`, Review.toJson(review), { headers })
+      .toPromise()
+      .then((response: any) => {
+        const updated = response;
+
+        this.stringToDate(updated);
+
+        return updated;
+      });
+  }
+
+  findById(id: number): Promise<Review> {
+    return this.http.get<Review>(`${this.reviewsUrl}/${id}`)
+      .toPromise()
+      .then((response: any) => {
+        const review = response;
+
+        this.stringToDate(review);
+
+        return review;
+      });
+  }
+
+  private stringToDate(review: Review): void {
+    review.review_date = moment(review.review_date, 'DD/MM/YYYY').toDate();
+  }
+
   add(review: Review): Promise<Review> {
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json');
 
     return this.http.post<any>(this.reviewsUrl, Review.toJson(review), { headers })
       .toPromise();
+  }
+
+  remove(id: number): Promise<any> {
+    return this.http.delete(`${this.reviewsUrl}/${id}`)
+      .toPromise()
+      .then(() => null);
   }
 
   getReviews(): Observable<any[]> {
