@@ -4,7 +4,7 @@ public enum BookRate {
 
 	MUITO_BAIXA("Muito Baixa"),
 	BAIXA("Baixa"),
-	MÉDIA("Média"),
+	MEDIA("Média"),
 	ALTA("Alta"),
 	MUITO_ALTA("Muito Alta");
 	
