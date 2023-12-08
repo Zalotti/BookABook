@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { ReviewService } from '../review.service';
 import { AuthService } from '../../security/auth.service';
-import{User} from 'src/app/core/model';
+import{User} from '../../core/model';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -18,7 +18,7 @@ export class ReviewsListComponent {
   type?: string;
   initialDate?: Date;
   finalDate?: Date;
-
+  header = 'Book a Book'; 
   reviews = [];
 
   totalRecords: number = 0;
@@ -38,7 +38,8 @@ export class ReviewsListComponent {
   ){ }
 
   ngOnInit(): void {
-    this.title.setTitle('Listagem de Reviews');
+    
+    this.title.setTitle('Lista das Reviews');
     this.list();
   }
 

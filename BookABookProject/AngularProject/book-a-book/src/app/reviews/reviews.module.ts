@@ -24,7 +24,8 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   exports:[
-    ReviewsListComponent
+    ReviewsListComponent,
+    ReviewRegisterComponent
   ]
 })
 export class ReviewsModule { }

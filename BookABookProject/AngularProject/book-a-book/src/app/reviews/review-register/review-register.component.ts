@@ -6,6 +6,7 @@ import { AuthService } from '../../security/auth.service';
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class ReviewRegisterComponent {
     private auth: AuthService,
     private errorHandler: ErrorHandlerService,
     private messageService: MessageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
     ){}
 
     ngOnInit(): void {
@@ -30,6 +32,7 @@ export class ReviewRegisterComponent {
       if(id != 'new'){
         this.loadReview(id);
       }
+      this.title.setTitle('Postar Nova Review');// aqui!
     }
 
     new(reviewForm: NgForm){

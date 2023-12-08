@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,9 +19,10 @@ export class LoginComponent implements OnInit {
 
   msg: any;
   jwtPayload: any;
-  constructor(private fb: FormBuilder, private auth: AuthService,private router: Router) {
+  constructor(private fb: FormBuilder,private route: ActivatedRoute, private auth: AuthService,private router: Router,private title: Title) {
     this.jwtPayload = this.auth.jwtPayload;
   }
+  
 
   login(user: string, password: string) {
     this.auth.login(user, password)
@@ -32,7 +34,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title.setTitle('Login');
+  }
 
   submitLogin(): void {
     // Verifique se o formulário é válido antes de enviar para a API

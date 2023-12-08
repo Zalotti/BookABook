@@ -17,10 +17,14 @@ export class ErrorHandlerService {
       msg = errorResponse;
     } else if (errorResponse instanceof HttpErrorResponse
       && errorResponse.status >= 400 && errorResponse.status <= 499) {
-      msg = 'Ocorreu um erro ao processar a sua solicitação';
+      msg = 'Erro na solicitação';
 
       if (errorResponse.status === 403) {
-        msg = 'Você não tem permissão para executar esta ação';
+        msg = 'Lhe falta permissões';
+      }
+      
+      if (errorResponse.status === 404) {
+        msg = 'Essa página não existe';
       }
 
       try {
@@ -30,8 +34,8 @@ export class ErrorHandlerService {
       console.error('Ocorreu um erro', errorResponse);
 
     } else {
-      msg = 'Erro ao processar serviço remoto. Tente novamente.';
-      console.error('Ocorreu um erro', errorResponse);
+      msg = 'Tente novamente mais tarde';
+      console.error('Erro: ', errorResponse);
     }
 
     this.messageService.add({ severity: 'error', detail: msg });

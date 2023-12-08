@@ -34,7 +34,8 @@ public class User {
 	 @Email
      private String email;
 	 @NotNull
-     private String password;
+	 @Size(min = 6, max = 150)
+	 private String password;
      @NotNull
      private Boolean active_user; 
      @ManyToMany(fetch = FetchType.EAGER) // fetch = buscar - eager = ancioso

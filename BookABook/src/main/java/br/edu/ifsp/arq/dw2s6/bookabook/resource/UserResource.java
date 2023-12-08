@@ -52,9 +52,10 @@ public class UserResource {
     //"active": true
     //}
 	@PostMapping
-	@PreAuthorize("hasAuthority('ROLE_REGISTER_USER') and #oauth2.hasScope('write')")
-	public User create(@RequestBody User user, HttpServletResponse response) {
-		return userRepository.save(user);
+	@ResponseStatus(HttpStatus.CREATED)
+	//@PreAuthorize("hasAuthority('ROLE_REGISTER_USER') and #oauth2.hasScope('write')")
+	public User create(@Valid @RequestBody User user, HttpServletResponse response) {
+		return userService.save(user);
 	}
 	
 	//Buscar Usuário por Id

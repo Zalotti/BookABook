@@ -10,10 +10,13 @@ import { ReviewService } from '../reviews/review.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorHandlerService } from './error-handler.service';
 import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { Title } from '@angular/platform-browser';
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,7 @@ registerLocaleData(localePt);
     MessageService,
     ConfirmationService,
     ErrorHandlerService,
+    Title,
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   exports:[

@@ -7,19 +7,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
 import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     MatInputModule,
     MatButtonModule,
     JwtModule.forRoot({
       config: {
         tokenGetter,
         allowedDomains: ['localhost:8080'],
-        disallowedRoutes: ['http://localhost:8080/oauth/token']
+        disallowedRoutes: ['http://localhost:8080/oauth/token', 'http://localhost:8080/users']
       }
     })
   ],

@@ -236,3 +236,227 @@ INSERT INTO review (
     '2023-01-05',
 	8
 );
+
+-- Baixa 1
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+-- Baixa 2
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+
+-- Baixa 3
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+
+-- Baixa 4
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+
+-- Baixa 5
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+
+-- Baixa 6
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+
+-- Baixa 7
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+
+-- Baixa 8
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+
+
+-- Baixa 9
+
+INSERT INTO review (
+    review_name,
+    book_name,
+    image,
+    rate,
+    category,
+    description,
+    observation,
+    review_date,
+    user_id
+) VALUES (
+    'aaaaaaaaaaaaaa',
+    'aaaaaa',
+    'https://exemplo.com/review.jpg',
+    'MUITO_BAIXA',
+    'OUTROS',
+    'Horrível',
+    'aaaaaaaaaaaaaaaaaa',
+    '2023-01-05',
+	8
+);
+

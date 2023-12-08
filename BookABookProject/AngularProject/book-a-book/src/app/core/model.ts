@@ -3,6 +3,10 @@ import { AuthService } from '../security/auth.service';
 
 export class User {
   id!: number;
+  name!: string;
+  email!: string;
+  password!: string;
+  active = true;
 }
 
 export class Review {

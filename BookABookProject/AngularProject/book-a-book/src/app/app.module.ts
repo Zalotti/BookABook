@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './security/login/login.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
+// import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,21 +28,17 @@ import { AuthService } from './security/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReviewsModule } from './reviews/reviews.module';
 import { CoreModule } from './core/core.module';
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    CadastroComponent,
-    HomepageComponent,
-    ReviewFormComponent,
-
+    AppComponent
   ],
-
   imports: [
     CoreModule,
     BrowserModule,
+    UsersModule,
     HttpClientModule,
     AppRoutingModule,
     NoopAnimationsModule,
@@ -58,11 +54,12 @@ import { CoreModule } from './core/core.module';
     ReactiveFormsModule,
     SecurityModule,
     ReviewsModule,
+    CoreModule,
   ],
 
   providers: [
-    ReviewService,
-    AuthService], // ReviewService na lista de providers, remover depois
+    AuthService
+  ], // ReviewService na lista de providers, remover depois
   bootstrap: [AppComponent]
 
 })

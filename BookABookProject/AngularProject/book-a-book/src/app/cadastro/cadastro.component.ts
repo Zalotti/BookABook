@@ -1,52 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ErrorHandlerService } from 'src/app/core/error-handler.service';
-import { User } from '../core/model';
+// import { Component, OnInit } from '@angular/core';
+// import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+// import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-cadastro',
-  templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css'],
-})
-export class CadastroComponent implements OnInit {
-  cadastroForm: FormGroup = this.fb.group({
-    nome: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    senha: ['', Validators.required],
-    confirmarSenha: ['', Validators.required],
-  });
+// import { MessageService } from 'primeng/api';
 
-  user = new User();
+// import { User } from '../core/model';
+// import { UserService } from '../users/user.service';
+// import { ErrorHandlerService } from '../core/error-handler.service';
+// import { Title } from '@angular/platform-browser';
 
-  constructor(
-    private userService: UserService,
-    private errorHandler: ErrorHandlerService,
-    private messageService: MessageService,
-    private router: Router,
-    private title: Title,
-    private fb: FormBuilder) {}
+// @Component({
+//   selector: 'app-cadastro',
+//   templateUrl: './cadastro.component.html',
+//   styleUrls: ['./cadastro.component.css'],
+// })
 
-  ngOnInit(): void {
-    this.title.setTitle('Cadastro de Usuário');
-  }
+// export class CadastroComponent implements OnInit {
+//   cadastroForm: FormGroup = this.fb.group({
+//     nome: ['', Validators.required],
+//     email: ['', [Validators.required, Validators.email]],
+//     senha: ['', Validators.required],
+//     confirmarSenha: ['', Validators.required],
+//   });
 
-  submitCadastro(userForm: NgForm): void {
-    // // Verifique se o formulário é válido antes de enviar para a API
-    // if (this.cadastroForm.valid) {
-    //   const dadosCadastro = this.cadastroForm.value;
+//   user = new User();
 
-    //   // Aqui você pode enviar os dados para a API 
-    //   console.log('Dados a serem enviados:', dadosCadastro);
+//   constructor(
+//     private userService: UserService,
+//     private errorHandler: ErrorHandlerService,
+//     private messageService: MessageService,
+//     private router: Router,
+//     private title: Title,
+//     private fb: FormBuilder) {}
 
-      
-    //   this.cadastroForm.reset();
-    // }
+//   ngOnInit(): void {
+//     this.title.setTitle('Cadastro de Usuário');
+//   }
 
-    this.userService.add(this.user)
-    .then(() => {
-      this.messageService.add({ severity: 'success', detail: 'Usuário cadastrado com sucesso.' });
-      this.router.navigate(['/login']);
-    })
-    .catch(error => this.errorHandler.handle(error));
-  }
-}
+//   submitCadastro(userForm: NgForm): void {
+//     this.userService.add(this.user)
+//       .then(() => {
+//         this.messageService.add({ severity: 'success', detail: 'Usuário criado.' });
+//         this.router.navigate(['/login']);
+//       })
+//       .catch(error => this.errorHandler.handle(error));
+//   }
+// }
