@@ -8,5 +8,94 @@ precisa ter:
 
   <a routerLink="/reviews">Voltar para a pesquisa</a>
 
-  <button pButton type="button" label="Nova" class="p-button-info"
-            (click)="new(f)"></button>
+  <!-- <button pButton type="button" label="Nova" class="p-button-info"
+            (click)="new(f)"></button> -->
+
+            <div class="popup-container">
+  <div class="popup-form">
+    <form #reviewForm="ngForm" (ngSubmit)="submitReview()">
+
+       <!-- Campo do titulo do livro -->
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Título do livro"
+          name="titulo"
+          [(ngModel)]="review.book_name"
+          required
+          aria-label="Título do livro"
+        />
+      </mat-form-field>
+
+      <!-- Campo da review do livro -->
+      <mat-form-field>
+        <textarea
+          matInput
+          placeholder="Review do livro"
+          name="review"
+          [(ngModel)]="review"
+          required
+          aria-label="Review do livro"
+        ></textarea>
+      </mat-form-field>
+
+      <!-- Dropdown categoria do livro -->
+      <mat-form-field>
+        <mat-label>Categoria do Livro</mat-label>
+        <mat-select
+          name="categoria"
+          [(ngModel)]="categoriaSelecionada"
+          required
+          aria-label="Categoria do Livro"
+        >
+          <mat-option
+            *ngFor="let categoria of categoriasLivros"
+            [value]="categoria"
+          >
+            {{ categoria }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <!-- Campo adicionar link da capa do livro -->
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Adicione um link da capa do seu livro"
+          type="url"
+          name="capaLivro"
+          [(ngModel)]="capaLivro"
+          aria-label="Link da capa do livro"
+        />
+      </mat-form-field>
+
+      <!-- Campo de avaliação de estrelas -->
+      <div class="avaliacao">
+        <p class="txtAvaliacao">Dê uma nota de avaliação para o livro:</p>
+        <div
+          class="estrelas"
+          *ngFor="let index of [1, 2, 3, 4, 5]"
+          (click)="rateBook(index)"
+          role="button"
+          tabindex="0"
+        >
+          <mat-icon
+            [style.color]="rating >= index ? 'gold' : 'gray'"
+            aria-hidden="true"
+            >star</mat-icon
+          >
+        </div>
+      </div>
+
+
+      <!-- Campo de nota oculta para armazenar a classificação -->
+      <input type="hidden" name="rating" [value]="rating" aria-hidden="true" />
+
+      <!-- Botão para enviar a revisão -->
+      <button class="enviar" type="submit" [disabled]="reviewForm.invalid">
+        Enviar Review
+      </button>
+    </form>
+  </div>
+</div>

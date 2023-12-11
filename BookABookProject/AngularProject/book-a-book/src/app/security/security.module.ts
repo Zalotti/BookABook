@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BookabookHttpInterceptor } from './bookabook-http-interceptor';
+import { AuthGuard } from './auth.guard';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -16,7 +20,9 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     RouterModule,
     MatInputModule,
+    MatToolbarModule,
     MatButtonModule,
+    ReactiveFormsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter,
@@ -28,6 +34,12 @@ import { RouterModule } from '@angular/router';
   exports: [LoginComponent],
   providers: [
     JwtHelperService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BookabookHttpInterceptor,
+      multi: true
+    },
   ],
   
 })

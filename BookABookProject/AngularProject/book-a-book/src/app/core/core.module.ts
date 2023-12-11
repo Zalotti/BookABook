@@ -12,11 +12,13 @@ import { ErrorHandlerService } from './error-handler.service';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { Title } from '@angular/platform-browser';
+import { NotAuthorizedComponent } from './not-authorized.component';
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     CommonModule,

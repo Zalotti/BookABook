@@ -11,7 +11,7 @@
     {{ msg }}
     {{ jwtPayload | json }}
 
-    <form class="content__form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+    <form class="content__form" #f="ngForm">
       <div class="imagem-login"></div>
     
       <p class="txtLogin"><strong>Login</strong></p>
@@ -20,20 +20,20 @@
         <div class="content__inputs">
           <!-- Campo de Email -->
           <label>
-            <input type="text" formControlName="email" />
+            <input type="text" type="email" name="user" placeholder="E-mail" ngModel required #user />
             <span>&#64;Email</span>
           </label>
     
           <!-- Campo de Senha -->
           <label>
-            <input type="password" formControlName="senha" />
+            <input type="password" name="password" placeholder="Senha" ngModel required #password />
             <span>Senha</span>
           </label>
         </div>
     
         <div class="content__buttons">
           <!-- Botão de Login -->
-          <button class="button_login" type="submit">Login</button>
+          <button class="button_login" type="submit" (click)="login(user.value, password.value)">Login</button>
     
           <!-- Botão de Redirecionamento para a página de cadastro -->
           <button class="button_cadastro" routerLink="/cadastro">

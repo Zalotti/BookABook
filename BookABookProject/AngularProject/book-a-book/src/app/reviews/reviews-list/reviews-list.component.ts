@@ -6,6 +6,7 @@ import { ErrorHandlerService } from '../../core/error-handler.service';
 import { ReviewService } from '../review.service';
 import { AuthService } from '../../security/auth.service';
 import{User} from '../../core/model';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmationService, MessageService } from 'primeng/api';
