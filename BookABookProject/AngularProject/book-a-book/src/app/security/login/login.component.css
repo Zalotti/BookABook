@@ -40,7 +40,8 @@ mat-toolbar {
 .imagem-login {
   width: 300px; /* ajuste conforme necessário */
   height: 200px; /* ajuste conforme necessário */
-  background-size: cover; /* ou 'contain' dependendo do comportamento desejado */
+  background-size: cover; /* ou 'contain' dependendo do compo
+  rtamento desejado */
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('Logo.png'); 

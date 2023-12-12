@@ -1,0 +1,49 @@
+<body>
+  <header>
+    <mat-toolbar>
+      <div class="imagem-book"></div>
+      <span class="spanbook">BookABook</span>
+    </mat-toolbar>
+  </header>
+
+  <!-- Botão para adicionar uma review  -->
+  <div class="add-review">
+    <button class="review">Adicionar review</button>
+  </div>
+
+  <!-- Seção para exibir as reviews com paginação  -->
+  <div class="reviews-container">
+    <div class="card">
+      Seção do usuário
+      <div class="user">
+        <div class="user-text">
+          Nome do usuário ou Nickname
+          <p>&#64;{{ User.name }} - {{ Review.review_date}}</p>
+        </div>
+      </div>
+
+      <!-- Seção de review  -->
+      <div class="review-container">
+        <!-- Imagem do livro  -->
+        <div class="book-image">
+          <img [src]="Review.image" alt="{{ Review.review_name }}" />
+        </div>
+
+        <!-- Conteúdo da review  -->
+        <div class="card-content">
+          <!-- Título do livro  -->
+          <h1 class="titulo">{{ Review.book_name }}</h1>
+          <!-- Gênero do livro  -->
+          <p class="genero">{{ Review.category }}</p>
+          <!-- Texto da review  -->
+          <p class="reviewtxt">{{ Review.reviewText }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caso não haja reviews  -->
+    <div *ngIf="reviews.length === 0">
+      <p>Nenhuma review disponível.</p>
+    </div>
+  </div>
+</body>

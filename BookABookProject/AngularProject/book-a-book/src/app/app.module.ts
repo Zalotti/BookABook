@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './security/login/login.component';
 // import { CadastroComponent } from './cadastro/cadastro.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { ReviewFormComponent } from './review-form/review-form.component';
+// import { HomepageComponent } from './homepage/homepage.component';
+// import { ReviewFormComponent } from './review-form/review-form.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 // import { ConfirmDialogModule, ConfirmationService, SharedModule } from 'primeng/primeng';
 
@@ -45,7 +45,7 @@ import { UsersModule } from './users/users.module';
     // AppRoutingModule,
     // NoopAnimationsModule,
     // MatIconModule,
-    // MatToolbarModule,
+    //MatToolbarModule,
     // MatButtonModule,
     // MatDialogModule,
     // FormsModule,

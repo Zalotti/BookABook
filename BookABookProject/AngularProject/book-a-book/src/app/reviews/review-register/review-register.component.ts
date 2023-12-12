@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 
+
 @Component({
   selector: 'app-review-register',
   templateUrl: './review-register.component.html',
@@ -26,7 +27,16 @@ export class ReviewRegisterComponent {
     private route: ActivatedRoute,
     private title: Title
     ){}
+    //Arthur 
+    category = ['Fantasia', 'Ficção', 'Horror', 'Suspense', 'Literatura Infantil', 'Acadêmico', 'Biografia', 'Romance', 'HQ', 'Literatura Nacional'];
+    
+    //contador de estrelas selecionadas
+    rate: number = 1;
+    rateBook(starIndex: number): void {
+    this.rate = starIndex;
+    }
 
+    
     ngOnInit(): void {
       const id = this.route.snapshot.params[`id`];
       if(id != 'new'){

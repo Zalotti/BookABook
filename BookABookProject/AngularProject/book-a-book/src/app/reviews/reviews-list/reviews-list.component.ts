@@ -1,5 +1,11 @@
+import { ReviewRegisterComponent } from './../review-register/review-register.component';
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+
+import { MatDialog } from '@angular/material/dialog';
+
+
+
 
 //import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
 import { ErrorHandlerService } from '../../core/error-handler.service';
@@ -10,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
 @Component({
   selector: 'app-reviews-list',
   templateUrl: './reviews-list.component.html',
@@ -35,14 +42,20 @@ export class ReviewsListComponent {
     private messageService: MessageService,
     private title: Title,
     private errorHandler: ErrorHandlerService,
-    private auth: AuthService
+    private auth: AuthService,
+    private dialog: MatDialog //arthur
   ){ }
+
+    
+
 
   ngOnInit(): void {
     
     this.title.setTitle('Lista das Reviews');
     this.list();
   }
+
+  
 
   list(): void {
     this.reviewService.list()
@@ -86,6 +99,14 @@ export class ReviewsListComponent {
         this.messageService.add({ severity: 'success', detail: 'Review deletada.' });
       })
       .catch(error => this.errorHandler.handle(error));
+  }
+
+  //arthur
+  openReviewForm(): void {
+    const dialogRef = this.dialog.open(ReviewRegisterComponent, {
+      width: '800px', // Tamanho do popup do formulário
+      height: 'auto',
+    });
   }
 }
 

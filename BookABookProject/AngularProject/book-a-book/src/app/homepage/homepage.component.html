@@ -1,9 +1,9 @@
  <!-- <td>
   <span class="p-column-title">Usuário</span>
   {{ reviews.user.name }} falta user service
-</td>
+</td> -->
 
- review-list.component.html 
+ <!-- review-list.component.html  -->
 
 <body>
 <header>
@@ -13,14 +13,14 @@
 </mat-toolbar>
 </header>
 
- Botão para adicionar uma review 
+ <!-- Botão para adicionar uma review  -->
 <div class="add-review">
 <button class="review" (click)="openReviewForm()">Adicionar review</button>
 </div>
 
 
 
- Seção para exibir as reviews com paginação 
+ <!-- Seção para exibir as reviews com paginação  -->
 <div class="reviews-container">
 <div *ngFor="let review of pagedReviews | paginate: { itemsPerPage: 3, currentPage: p }" class="card">
  Seção do usuário 
@@ -31,39 +31,39 @@
   </div>
 </div>
 
- Seção de review 
+<!-- Seção de review  -->
 <div class="review-container">
 
- Imagem do livro 
+ <!-- Imagem do livro  -->
 <div class="book-image">
   <img [src]="review.bookImage" alt="{{ review.bookTitle }}" />
 </div>
 
- Conteúdo da review 
+ <!-- Conteúdo da review  -->
 <div class="card-content">
-   Título do livro 
+   <!-- Título do livro  -->
   <h1 class="titulo">{{ review.bookTitle }}</h1>
-   Gênero do livro 
+   <!-- Gênero do livro  -->
   <p class="genero">{{ review.genre }}</p>
-   Texto da review 
+   <!-- Texto da review  -->
   <p class="reviewtxt">{{ review.reviewText }}</p>
 </div>
 </div>
 </div>
 
- Caso não haja reviews 
+ <!-- Caso não haja reviews  -->
 <div *ngIf="reviews.length === 0">
 <p>Nenhuma review disponível.</p>
 </div>
 
- Controles de paginação 
+ <!-- Controles de paginação  -->
 <div class="pagination-controls-container">
  <pagination-controls (pageChange)="p = $event"></pagination-controls> 
 </div>
 </div>
 </body> 
 
- <div class="container">
+ <!-- <div class="container">
 
 <form autocomplete="off" (ngSubmit)="search()">
 <div class="p-grid">

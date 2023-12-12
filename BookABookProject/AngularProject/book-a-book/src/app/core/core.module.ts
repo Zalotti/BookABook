@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { Title } from '@angular/platform-browser';
 import { NotAuthorizedComponent } from './not-authorized.component';
+
+
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ registerLocaleData(localePt);
     NotAuthorizedComponent
   ],
   imports: [
+
     CommonModule,
     ToastModule,
     ConfirmDialogModule,

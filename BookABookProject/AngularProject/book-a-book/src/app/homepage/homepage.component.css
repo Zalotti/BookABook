@@ -1,4 +1,4 @@
-body, html {
+/* /* body, html {
   margin: 0;
   height: 100vh;
 
@@ -8,7 +8,7 @@ body, html {
 
 /*header----------------------------------------*/
 
-mat-toolbar {
+/* mat-toolbar {
   background-color: #323f7a;
   color: white;
   position: relative;
@@ -24,13 +24,13 @@ mat-toolbar {
   margin: 10px;
   background-image: url('../book.png'); 
 
-}
+} */
 
 /*header----------------------------------------*/
 
 
 
-.add-review {
+/* .add-review {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,7 +104,7 @@ mat-toolbar {
 .card-content {
   padding: 20px;
   flex: 1; /* Ocupar o espaço restante ao lado da imagem */
-  overflow-y: auto;
+  /* overflow-y: auto;
   max-height: 300px;
 
 }
@@ -117,4 +117,4 @@ mat-toolbar {
 
 h1.titulo{
   margin-bottom: 0%;
-}
+}  */  

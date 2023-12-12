@@ -13,7 +13,7 @@ precisa ter:
 
             <div class="popup-container">
   <div class="popup-form">
-    <form #reviewForm="ngForm" (ngSubmit)="submitReview()">
+    <form #reviewForm="ngForm">
 
        <!-- Campo do titulo do livro -->
       <mat-form-field>
@@ -44,15 +44,15 @@ precisa ter:
         <mat-label>Categoria do Livro</mat-label>
         <mat-select
           name="categoria"
-          [(ngModel)]="categoriaSelecionada"
+          [(ngModel)]="category"
           required
           aria-label="Categoria do Livro"
         >
           <mat-option
-            *ngFor="let categoria of categoriasLivros"
+            *ngFor="let categoria of category"
             [value]="categoria"
           >
-            {{ categoria }}
+            {{ Review.category }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -65,7 +65,7 @@ precisa ter:
           placeholder="Adicione um link da capa do seu livro"
           type="url"
           name="capaLivro"
-          [(ngModel)]="capaLivro"
+          [(ngModel)]="review.image"
           aria-label="Link da capa do livro"
         />
       </mat-form-field>
@@ -90,7 +90,7 @@ precisa ter:
 
 
       <!-- Campo de nota oculta para armazenar a classificação -->
-      <input type="hidden" name="rating" [value]="rating" aria-hidden="true" />
+      <input type="hidden" name="rating" [value]="rate" aria-hidden="true" />
 
       <!-- Botão para enviar a revisão -->
       <button class="enviar" type="submit" [disabled]="reviewForm.invalid">
