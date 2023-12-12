@@ -1,17 +1,13 @@
 import { ReviewRegisterComponent } from './../review-register/review-register.component';
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-
 import { MatDialog } from '@angular/material/dialog';
-
-
-
-
 //import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { ReviewService } from '../review.service';
 import { AuthService } from '../../security/auth.service';
 import{User} from '../../core/model';
+import{Review} from '../../core/model';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -30,6 +26,8 @@ export class ReviewsListComponent {
   reviews = [];
 
   totalRecords: number = 0;
+  user: any;
+  review: any;
 
  // filter = new ActivityFilter();
 

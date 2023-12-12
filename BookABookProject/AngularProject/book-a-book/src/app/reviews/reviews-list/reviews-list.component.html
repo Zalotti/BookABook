@@ -18,7 +18,7 @@
       <div class="user">
         <div class="user-text">
           Nome do usuário ou Nickname
-          <p>&#64;{{ User.name }} - {{ Review.review_date}}</p>
+          <p>&#64;{{ user.name }} - {{ review.review_date}}</p>
         </div>
       </div>
 
@@ -26,17 +26,17 @@
       <div class="review-container">
         <!-- Imagem do livro  -->
         <div class="book-image">
-          <img [src]="Review.image" alt="{{ Review.review_name }}" />
+          <img [src]= "review.image" alt="{{ review.review_name }}" />
         </div>
 
         <!-- Conteúdo da review  -->
         <div class="card-content">
           <!-- Título do livro  -->
-          <h1 class="titulo">{{ Review.book_name }}</h1>
+          <h1 class="titulo">{{ review.book_name }}</h1>
           <!-- Gênero do livro  -->
-          <p class="genero">{{ Review.category }}</p>
+          <p class="genero">{{ review.category }}</p>
           <!-- Texto da review  -->
-          <p class="reviewtxt">{{ Review.reviewText }}</p>
+          <p class="reviewtxt">{{ review.reviewText }}</p>
         </div>
       </div>
     </div>

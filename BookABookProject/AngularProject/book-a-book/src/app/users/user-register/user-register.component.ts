@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { MessageService } from 'primeng/api';
@@ -16,14 +16,17 @@ import { Title } from '@angular/platform-browser';
   })
 
 export class UserRegisterComponent implements OnInit {
+
   cadastroForm: FormGroup = this.fb.group({
     nome: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     senha: ['', Validators.required],
-    confirmarSenha: ['', Validators.required],
+    confirmarSenha: ['', [Validators.required]],
   });
 
   user = new User();
+  f!: NgForm;
+  passCheck!: string;
 
   constructor(
     private userService: UserService,

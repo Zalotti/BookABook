@@ -7,6 +7,7 @@ export class User {
   email!: string;
   password!: string;
   active = true;
+  password_confirm?: string;
 }
 
 export class Review {

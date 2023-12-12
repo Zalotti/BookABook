@@ -16,6 +16,7 @@ export class UserService {
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json');
 
+    delete user.password_confirm;
     return this.http.post<any>(this.usersUrl, user, { headers })
       .toPromise();
   }

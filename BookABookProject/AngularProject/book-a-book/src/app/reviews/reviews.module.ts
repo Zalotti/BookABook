@@ -16,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
   imports: [
     CommonModule,
     MatFormFieldModule,
+    MatToolbarModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,

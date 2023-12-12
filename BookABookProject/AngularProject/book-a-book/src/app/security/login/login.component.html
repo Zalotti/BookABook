@@ -7,9 +7,9 @@
   </header>
 
   <div class="card">
-    //TESTE
+    <!-- //TESTE
     {{ msg }}
-    {{ jwtPayload | json }}
+    {{ jwtPayload | json }} -->
 
     <form class="content__form" #f="ngForm">
       <div class="imagem-login"></div>
@@ -21,13 +21,13 @@
           <!-- Campo de Email -->
           <label>
             <input type="text" type="email" name="user" placeholder="E-mail" ngModel required #user />
-            <span>&#64;Email</span>
+            <!-- <span>&#64;Email</span> -->
           </label>
     
           <!-- Campo de Senha -->
           <label>
             <input type="password" name="password" placeholder="Senha" ngModel required #password />
-            <span>Senha</span>
+            <!-- <span>Senha</span> -->
           </label>
         </div>
     
@@ -36,7 +36,7 @@
           <button class="button_login" type="submit" (click)="login(user.value, password.value)">Login</button>
     
           <!-- Botão de Redirecionamento para a página de cadastro -->
-          <button class="button_cadastro" routerLink="/cadastro">
+          <button class="button_cadastro" routerLink="/users/new">
             Não possui uma conta? Cadastrar-se
           </button>
         </div>

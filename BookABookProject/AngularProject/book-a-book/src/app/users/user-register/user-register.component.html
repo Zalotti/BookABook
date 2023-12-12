@@ -1,1 +1,68 @@
-<p>user-register works!</p>
+<body>
+    <header>
+      <mat-toolbar>
+        <div class="imagem-book"></div>
+        <span class="spanbook">BookABook</span>
+      </mat-toolbar>
+    </header>
+  
+    <div class="card">
+    <!-- Adicione um (ngSubmit) no formulário -->
+  <form class="content__form"  #f="ngForm" autocomplete="off" (ngSubmit)="submitCadastro(f)">
+    <p class="txtLogin"><strong>Cadastrar-se</strong></p>
+    <p class="txtSpan">Utilize suas credenciais para concluir o cadastro</p>
+    <div class="input">
+      <div class="content__inputs">
+        <!-- Campo de Nome -->
+        <label>
+          <input name="name" type="text" [(ngModel)]="user.name" #name="ngModel" required minlength="3" maxlength="50"/>
+          <span>Insira seu nome</span>
+            <app-message [control]="name" error="required" text="Informe um nome"></app-message>
+            <app-message [control]="name" error="minlength" text="Mínimo de {{ name.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ name.errors?.minlength?.actualLength }}"></app-message>
+        </label>
+  
+        <!-- Campo de Email -->
+        <label>
+          <input name="email" type="email" [(ngModel)]="user.email" #email="ngModel" required />
+          <span>Insira seu &#64;Email</span>
+          <app-message [control]="email" error="required" text="Informe um e-mail"></app-message>
+        </label>
+  
+        <!-- Campo de Senha -->
+        <label>
+          <input name="password" type="password" [(ngModel)]="user.password" #password="ngModel" required minlength="6" maxlength="50" />
+          <span>Digite sua Senha</span>
+            <app-message [control]="password" error="required" text="Informe uma senha de 6 a 50 caracteres."></app-message>
+            <app-message [control]="password" error="minlength" text="Mínimo de {{ password.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ password.errors?.minlength?.actualLength }}"></app-message>
+        </label>
+  
+        <!-- Confirmação de Senha -->
+        <label>
+          <input type="password" name="passCheck"  [(ngModel)]="user.password_confirm"/>
+          <span>Confirme sua Senha</span>
+          <br>
+          <span *ngIf="user.password != user.password_confirm" class="error"> As senhas devem ser iguais </span>
+        </label>
+        
+      </div>
+      <div class="content__buttons">
+        <!-- Botão de Cadastro -->
+        <button class="button_login" type="submit">Cadastrar-se</button>
+  
+        <!-- Botão de Redirecionamento para a página de login -->
+        <button class="button_cadastro" routerLink="/login">
+          Já possui uma conta? Fazer login
+        </button>
+      </div>
+    </div>
+  </form>
+  
+    </div>
+  
+    <footer>
+      <div class="rodape">
+        <span>&copy; BookABook. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </body>
+  
