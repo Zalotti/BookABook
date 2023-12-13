@@ -1,19 +1,15 @@
-<p>review-register works!</p>
 criar review aqui -- por o save(f) no (ngSubmit)
 exemplo de como usar o modulo mensagem:<!-- <app-message [control]="date" error="required" text="Informe uma data"></app-message> -->
 precisa ter:
 <h1>{{ editing ? 'Edição de' : 'Nova' }} Review</h1>
-
-  ...
-
-  <a routerLink="/reviews">Voltar para a pesquisa</a>
+  <a routerLink="/reviews">Voltar</a>
 
   <!-- <button pButton type="button" label="Nova" class="p-button-info"
             (click)="new(f)"></button> -->
 
             <div class="popup-container">
   <div class="popup-form">
-    <form #reviewForm="ngForm">
+    <form #reviewForm="ngForm" (ngSubmit)="save(reviewForm)">
 
        <!-- Campo do titulo do livro -->
       <mat-form-field>

@@ -44,9 +44,6 @@ export class ReviewsListComponent {
     private dialog: MatDialog //arthur
   ){ }
 
-    
-
-
   ngOnInit(): void {
     
     this.title.setTitle('Lista das Reviews');

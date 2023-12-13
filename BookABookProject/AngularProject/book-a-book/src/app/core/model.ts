@@ -12,13 +12,13 @@ export class User {
 
 export class Review {
   id!: number;
-  image!: string;
+  image?: string;
   description!: string;
-  category!: string; //o ideal seria uma dropbox
+  category?: string; //o ideal seria uma dropbox
   review_name!: string;
   book_name!: string;
   observation!: string;
-  rate!: number;
+  rate?: number;
   review_date!: Date;
   user: any;
 
