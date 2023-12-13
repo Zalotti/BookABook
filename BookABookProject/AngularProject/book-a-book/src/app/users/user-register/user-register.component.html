@@ -15,36 +15,55 @@
       <div class="content__inputs">
         <!-- Campo de Nome -->
         <label>
-          <input name="name" type="text" [(ngModel)]="user.name" #name="ngModel" required minlength="3" maxlength="50"/>
-          <span>Insira seu nome</span>
-            <app-message [control]="name" error="required" text="Informe um nome"></app-message>
-            <app-message [control]="name" error="minlength" text="Mínimo de {{ name.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ name.errors?.minlength?.actualLength }}"></app-message>
+          <input name="name" type="text" placeholder="Digite seu nome" [(ngModel)]="user.name" #name="ngModel" required minlength="3" maxlength="50" required/>
         </label>
-  
+
+        <!-- Erro do Nome -->
+        <div class="container">
+        <div>
+        <app-message [control]="name" class="error" error="required" text="Informe um nome"></app-message>
+        <app-message [control]="name" class="error" error="minlength" text="Mínimo de {{ name.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ name.errors?.minlength?.actualLength }}"></app-message>
+      </div>
+        </div>
+
         <!-- Campo de Email -->
         <label>
-          <input name="email" type="email" [(ngModel)]="user.email" #email="ngModel" required />
-          <span>Insira seu &#64;Email</span>
-          <app-message [control]="email" error="required" text="Informe um e-mail"></app-message>
+          <input name="email" type="email" placeholder="Digite seu email" [(ngModel)]="user.email" #email="ngModel" required />
         </label>
+
+        <!-- Erro do Email -->
+        <div class="container">
+        <div>
+          <app-message [control]="email" class="error" error="required" text="Informe um e-mail"></app-message>
+        </div>
+        </div>
   
         <!-- Campo de Senha -->
         <label>
-          <input name="password" type="password" [(ngModel)]="user.password" #password="ngModel" required minlength="6" maxlength="50" />
-          <span>Digite sua Senha</span>
-            <app-message [control]="password" error="required" text="Informe uma senha de 6 a 50 caracteres."></app-message>
-            <app-message [control]="password" error="minlength" text="Mínimo de {{ password.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ password.errors?.minlength?.actualLength }}"></app-message>
+          <input name="password" type="password" placeholder="Digite sua senha" [(ngModel)]="user.password" #password="ngModel" required minlength="6" maxlength="50" />
         </label>
+
+        <!-- Erro da Senha -->
+        <div class="container">
+          <div>
+          <app-message [control]="password" class="error" error="required" text="Informe uma senha de 6 a 50 caracteres."></app-message>
+          <app-message [control]="password" class="error" error="minlength" text="Mínimo de {{ password.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ password.errors?.minlength?.actualLength }}"></app-message>
+        </div>
+        </div>
   
         <!-- Confirmação de Senha -->
         <label>
-          <input type="password" name="passCheck"  [(ngModel)]="user.password_confirm"/>
-          <span>Confirme sua Senha</span>
-          <br>
-          <span *ngIf="user.password != user.password_confirm" class="error"> As senhas devem ser iguais </span>
+          <input name="passCheck" type="password" placeholder="Confirme sua senha" [(ngModel)]="user.password_confirm"/>
         </label>
-        
-      </div>
+
+         <!-- Erro da Confirmação de Senha -->
+         <div class="container">
+          <div class="error" *ngIf="user.password != user.password_confirm && user.password_confirm != null">As senhas devem ser iguais</div>
+        </div>
+      </div>        
+
+      <!-- Erro da Confirmação de Senha -->
+
       <div class="content__buttons">
         <!-- Botão de Cadastro -->
         <button class="button_login" type="submit">Cadastrar-se</button>
@@ -65,4 +84,4 @@
       </div>
     </footer>
   </body>
-  
+ 

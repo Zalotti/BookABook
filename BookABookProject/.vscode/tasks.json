@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "ng",
+			"path": "AngularProject/book-a-book",
+			"problemMatcher": [],
+			"label": "npm: ng - AngularProject/book-a-book",
+			"detail": "ng"
+		}
+	]
+}

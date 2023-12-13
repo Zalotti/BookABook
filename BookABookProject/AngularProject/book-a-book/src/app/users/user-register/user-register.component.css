@@ -42,7 +42,7 @@ body, html {
 }
 
 .txtSpan{
-    font-size: small;
+    font-size: medium;
     color: dimgray;
 }
 
@@ -52,6 +52,7 @@ body, html {
   }
 
 .content__form{
+    width: 30%;
     margin: 20px;
     border-radius: 15px;
     padding: 10px;
@@ -70,7 +71,8 @@ body, html {
     outline: none;
     padding: 9px 8px 7px 8px;
     text-overflow: ellipsis;
-    font-size: 16px;
+    font-size: 11px;
+    background: rgb(250, 250, 250);
     vertical-align: middle;
   }
 
@@ -82,7 +84,6 @@ body, html {
     position: relative;
     min-width: 268px;
     height: 38px;
-    background: rgb(250, 250, 250);
     border-radius: 3px;
   }
 
@@ -184,5 +185,21 @@ footer {
   
   span{
     font-family: 'Cambria Math', serif;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .error {
+    color: red;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 13px; /* Ajuste conforme necessário */
+    background-color: white;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center
   }
 
