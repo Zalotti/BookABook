@@ -20,7 +20,7 @@ public class Review {
 	 @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long id;
-	 private String image;
+	private String image;
 	 @NotNull
 	 private String review_name;
 	 @NotNull 
@@ -91,4 +91,18 @@ public class Review {
 		public void setRate(BookRate rate) {
 			this.rate = rate;
 		}
+		
+		 public String getReview_name() {
+				return review_name;
+			}
+			public void setReview_name(String review_name) {
+				this.review_name = review_name;
+			}
+			public String getBook_name() {
+				return book_name;
+			}
+			public void setBook_name(String book_name) {
+				this.book_name = book_name;
+			}
 }
+
