@@ -17,6 +17,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AuthService } from '../security/auth.service';
 
 
 @NgModule({
@@ -37,6 +38,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   exports:[
     ReviewsListComponent,
     ReviewRegisterComponent
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class ReviewsModule { }

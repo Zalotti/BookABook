@@ -59,6 +59,7 @@ export class ReviewsListComponent {
     this.reviewService.list()
       .then(result => {
         this.reviews = result;
+        console.log(this.reviews);
       })
       .catch(error => this.errorHandler.handle(error));
   }
