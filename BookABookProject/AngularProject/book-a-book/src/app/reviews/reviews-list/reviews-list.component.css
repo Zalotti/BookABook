@@ -1,20 +1,31 @@
 body, html {
     margin: 0;
     height: 100vh;
-  
     display: flex;
     flex-direction: column;
+    
   }
-  
-  /*header----------------------------------------*/
-  
-  mat-toolbar {
+
+  header{
+    background-color: #323f7a;
+    height: auto;
+  }
+
+  .mat-toolbar {
     background-color: #323f7a;
     color: white;
     position: relative;
+    height: auto;
   }
   
   
+.logoheader{
+  margin-left: 20px; 
+  margin-bottom: 5px;
+
+  
+}
+
   .imagem-book {
     width: 45px; 
     height: 45px; 
@@ -25,8 +36,7 @@ body, html {
     background-image: url('book.png'); 
   
   }
-  
-  /*header----------------------------------------*/
+
   
   
   
@@ -103,7 +113,7 @@ body, html {
   
   .card-content {
     padding: 20px;
-    flex: 1; /* Ocupar o espaço restante ao lado da imagem */
+    flex: 1; 
     overflow-y: auto;
     max-height: 300px;
   

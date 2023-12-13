@@ -15,9 +15,16 @@ import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
+
+import { AuthService } from '../security/auth.service';
+
+
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { AuthService } from '../security/auth.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -33,7 +40,14 @@ import { AuthService } from '../security/auth.service';
     BrowserAnimationsModule,
     FormsModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports:[
     ReviewsListComponent,

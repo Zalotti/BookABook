@@ -1,9 +1,12 @@
+
 <body>
   <header>
     <mat-toolbar>
-      <div class="imagem-book"></div>
-      <span class="spanbook">BookABook</span>
-      <!-- {{ auth.jwtPayload?.name }} -->
+      <div class="logoheader">
+        <div class="imagem-book"></div>
+        <span class="spanbook">BookABook</span>
+        <!-- {{ auth.jwtPayload?.name }} -->
+      </div>
     </mat-toolbar>
   </header>
 
@@ -12,14 +15,16 @@
     <button class="review" (click)="openReviewForm()">Adicionar review</button>
   </div>
 
-  <!-- Seção para exibir as reviews com paginação  -->
+
+<!-- Seção para exibir as reviews  -->
   <div class="reviews-container">
-    <div class="card">
-      Seção do usuário
+  <div *ngFor="let review of reviews" class="card">
+
+      <!-- Seção do usuário -->
       <div class="user">
         <div class="user-text">
-          Nome do usuário ou Nickname
-          <p>&#64;{{ user.name }} - {{ review.review_date}}</p>
+          <!-- Nome do usuário ou Nickname -->
+          <p>&#64;{{ review.user.name }} - {{ review.review_date}}</p>
         </div>
       </div>
 
@@ -33,14 +38,19 @@
         <!-- Conteúdo da review  -->
         <div class="card-content">
           <!-- Título do livro  -->
-          <h1 class="titulo">{{ review.book_name }}</h1>
+          <h1 class="titulo"> titulo: {{ review.book_name }}</h1>
           <!-- Gênero do livro  -->
           <p class="genero">{{ review.category }}</p>
           <!-- Texto da review  -->
-          <p class="reviewtxt">{{ review.reviewText }}</p>
+          <p class="reviewtxt">{{ review.description }}</p>
         </div>
       </div>
-    </div>
+     
+  </div>
+  
+
+
+ 
 
     <!-- Caso não haja reviews  -->
     <div *ngIf="reviews.length === 0">

@@ -15,8 +15,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-reviews-list',
-  templateUrl: './reviews-list.component.html',
-  styleUrl: './reviews-list.component.css'
+  templateUrl: 'reviews-list.component.html',
+  styleUrl: 'reviews-list.component.css'
 })
 export class ReviewsListComponent {
   type?: string;

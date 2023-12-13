@@ -10,6 +10,9 @@ import { Title } from '@angular/platform-browser';
 
 
 
+
+
+
 @Component({
   selector: 'app-review-register',
   templateUrl: './review-register.component.html',
@@ -26,69 +29,72 @@ export class ReviewRegisterComponent {
     private messageService: MessageService,
     private route: ActivatedRoute,
     private title: Title
-    ){}
-    //Arthur 
-    category = ['Fantasia', 'Ficção', 'Horror', 'Suspense', 'Literatura Infantil', 'Acadêmico', 'Biografia', 'Romance', 'HQ', 'Literatura Nacional'];
-    
-    //contador de estrelas selecionadas
-    rate: number = 1;
-    rateBook(starIndex: number): void {
-    this.rate = starIndex;
-    }
+  ) { }
+  //Arthur 
+  selectedCategory: string = ''; // ou o tipo apropriado para sua categoria
+  categories = ['Fantasia', 'Ficção', 'Horror', 'Suspense', 'Literatura Infantil', 'Acadêmico', 'Biografia', 'Romance', 'HQ', 'Literatura Nacional'];
 
-    
-    ngOnInit(): void {
-      const id = this.route.snapshot.params[`id`];
-      if(id != 'new'){
-        this.loadReview(id);
-      }
-      this.title.setTitle('Postar Nova Review');// aqui!
-    }
 
-    new(reviewForm: NgForm){
-      this.review = new Review(this.auth.jwtPayload?.user_id);
-      reviewForm.reset();
-      this.router.navigate(['/reviews/new']);
-    }
+  //contador de estrelas selecionadas
+  rating: number = 0;
 
-    get editing(): boolean {
-      return Boolean(this.review.id);
+  rateBook(rating: number): void {
+    this.rating = rating;
+  }
+
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.params[`id`];
+    if (id != 'new') {
+      this.loadReview(id);
     }
-  
-    loadReview(id: number) {
-      this.reviewService.findById(id)
-        .then(review => {
-          this.review = review;
-        })
-        .catch(error => this.errorHandler.handle(error));
-    }
-  
-    save(reviewForm: NgForm){
-      if(this.editing){
-        this.updateReview(reviewForm);
-      }else{
-        this.addReview(reviewForm);
-      }
-    }
-  
-    updateReview(reviewForm: NgForm) {
-      this.reviewService.update(this.review)
-        .then( review => {
-          this.messageService.add({ severity: 'success', detail: 'Review editada.' });
-          this.review = review;
-        })
-        .catch(error => this.errorHandler.handle(error));
-    }
-  
-    addReview(reviewForm: NgForm) {
-      this.reviewService.add(this.review)
-        .then(addedReview => {
-          this.messageService.add({ severity: 'success', detail: 'Review adicionada.' });
-    this.loadReview(addedReview.id);
-          this.router.navigate(['/reviews', addedReview.id]);
-        })
-        .catch(error => this.errorHandler.handle(error));
+    this.title.setTitle('Postar Nova Review');// aqui!
+  }
+
+  new(reviewForm: NgForm) {
+    this.review = new Review(this.auth.jwtPayload?.user_id);
+    reviewForm.reset();
+    this.router.navigate(['/reviews/new']);
+  }
+
+  get editing(): boolean {
+    return Boolean(this.review.id);
+  }
+
+  loadReview(id: number) {
+    this.reviewService.findById(id)
+      .then(review => {
+        this.review = review;
+      })
+      .catch(error => this.errorHandler.handle(error));
+  }
+
+  save(reviewForm: NgForm) {
+    if (this.editing) {
+      this.updateReview(reviewForm);
+    } else {
+      this.addReview(reviewForm);
     }
   }
-  
+
+  updateReview(reviewForm: NgForm) {
+    this.reviewService.update(this.review)
+      .then(review => {
+        this.messageService.add({ severity: 'success', detail: 'Review editada.' });
+        this.review = review;
+      })
+      .catch(error => this.errorHandler.handle(error));
+  }
+
+  addReview(reviewForm: NgForm) {
+    this.reviewService.add(this.review)
+      .then(addedReview => {
+        this.messageService.add({ severity: 'success', detail: 'Review adicionada.' });
+        this.loadReview(addedReview.id);
+        this.router.navigate(['/reviews', addedReview.id]);
+      })
+      .catch(error => this.errorHandler.handle(error));
+  }
+}
+
 

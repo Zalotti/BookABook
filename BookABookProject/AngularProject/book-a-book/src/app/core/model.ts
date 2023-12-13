@@ -20,7 +20,7 @@ export class Review {
   observation!: string;
   rate?: number;
   review_date!: Date;
-  user: any;
+  user: User;
 
   constructor(user_id: number){
     this.user = new User();
