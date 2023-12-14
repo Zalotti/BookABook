@@ -37,8 +37,11 @@ body, html {
   
   }
 
-  
-  
+  .avaliacao {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }  
   
   .add-review {
     display: flex;

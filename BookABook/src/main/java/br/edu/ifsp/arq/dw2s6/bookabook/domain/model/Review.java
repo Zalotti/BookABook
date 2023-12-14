@@ -41,8 +41,7 @@ public class Review {
 	 private CategoryBook category;
 	 //Referencia Avaliação do Livro
 	 @NotNull
-	 @Enumerated(EnumType.STRING)
-	 private BookRate rate;
+	 private int rate;
 	public Long getId() {
 			return id;
 		}
@@ -85,10 +84,10 @@ public class Review {
 		public void setCategory(CategoryBook category) {
 				this.category = category;
 		}
-		public BookRate getRate() {
+		public int getRate() {
 			return rate;
 		}
-		public void setRate(BookRate rate) {
+		public void setRate(int rate) {
 			this.rate = rate;
 		}
 		 public String getReview_name() {

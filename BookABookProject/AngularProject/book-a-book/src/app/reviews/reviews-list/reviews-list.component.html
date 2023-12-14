@@ -21,7 +21,11 @@
   <div *ngFor="let review of reviews" class="card">
 <!-- Título da Review -->
     <h1 class="titulo">{{ review.review_name }}</h1>
-
+    <div class="avaliacao" style="margin: auto; width: fit-content;">
+      <div class="estrelas" *ngFor="let index of [1, 2, 3, 4, 5]" tabindex="0" >
+        <mat-icon [style.color]="review.rate >= index ? 'gold' : 'gray'" aria-hidden="true">star</mat-icon>
+      </div>
+    </div>
       <!-- Seção do usuário -->
       <div class="user">
         <div class="user-text">
