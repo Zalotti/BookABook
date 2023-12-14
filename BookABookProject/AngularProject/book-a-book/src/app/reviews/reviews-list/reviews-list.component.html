@@ -19,12 +19,14 @@
 <!-- Seção para exibir as reviews  -->
   <div class="reviews-container">
   <div *ngFor="let review of reviews" class="card">
+<!-- Título da Review -->
+    <h1 class="titulo">{{ review.review_name }}</h1>
 
       <!-- Seção do usuário -->
       <div class="user">
         <div class="user-text">
           <!-- Nome do usuário ou Nickname -->
-          <p>&#64;{{ review.user.name }} - {{ review.review_date}}</p>
+          <p><strong>{{ review.user.name }} -</strong> {{ review.review_date}}</p>
         </div>
       </div>
 
@@ -33,19 +35,16 @@
         <!-- Imagem do livro  -->
         <div class="book-image">
           <img [src]= "review.image" alt="{{ review.review_name }}" />
+        <!-- Nome do Livro e Gênero -->
+          <p class="book-info">{{ review.book_name }}, {{ review.category }}</p>
         </div>
 
         <!-- Conteúdo da review  -->
         <div class="card-content">
-          <!-- Título do livro  -->
-          <h1 class="titulo"> titulo: {{ review.book_name }}</h1>
-          <!-- Gênero do livro  -->
-          <p class="genero">{{ review.category }}</p>
           <!-- Texto da review  -->
           <p class="reviewtxt">{{ review.description }}</p>
         </div>
       </div>
-     
   </div>
   
 

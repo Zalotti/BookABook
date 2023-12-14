@@ -119,12 +119,14 @@ body, html {
   
   }
   
-  .genero{
+  .book-info{
     font-size: smaller;
-    margin-top: 0%;
+    text-align: center;
     color: rgb(48, 48, 48);
   }
   
   h1.titulo{
     margin-bottom: 0%;
+    text-align: center;
+    color: #323f7a;
   }
