@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Review } from '../../core/model';
 import { NgForm } from '@angular/forms';
 import { ReviewService } from '../review.service';
@@ -7,7 +7,7 @@ import { ErrorHandlerService } from '../../core/error-handler.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 
@@ -21,15 +21,22 @@ import { Title } from '@angular/platform-browser';
 
 export class ReviewRegisterComponent {
   review = new Review(this.auth.jwtPayload?.user_id);  
+  private aux: Review;
 
-  constructor(private reviewService: ReviewService,
+  constructor(
+    @Inject(MAT_DIALOG_DATA) data: { auxReview: Review },
+    private reviewService: ReviewService,
     private router: Router,
     private auth: AuthService,
     private errorHandler: ErrorHandlerService,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private title: Title
-  ) { }
+    private title: Title,
+    
+
+  ) {
+    this.aux = data.auxReview;
+  }
   //Arthur 
   selectedCategory: string = ''; // ou o tipo apropriado para sua categoria
   categories = ['Fantasia', 'Ficção', 'Horror', 'Suspense', 'Literatura Infantil', 'Acadêmico', 'Biografia', 'Romance', 'HQ', 'Literatura Nacional'];
@@ -135,7 +142,7 @@ export class ReviewRegisterComponent {
       .then(addedReview => {
         this.messageService.add({ severity: 'success', detail: 'Review adicionada.' });
         this.loadReview(addedReview.id);
-        this.router.navigate(['/reviews']);
+        location.reload();
       })
       .catch(error => this.errorHandler.handle(error));
   }

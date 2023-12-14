@@ -26,7 +26,7 @@ export class ReviewsListComponent {
   finalDate?: Date;
   header = 'Book a Book'; 
   reviews = [];
-
+  username='';
   totalRecords: number = 0;
   user: any;
   review: any;
@@ -50,6 +50,21 @@ export class ReviewsListComponent {
     
     this.title.setTitle('Lista das Reviews');
     this.list();
+    this.username= this.auth.jwtPayload?.name;
+
+  }
+
+  edit(id: number){
+    console.log(id)
+    const aux = this.reviewService.findById(id);
+
+    const dialogRef = this.dialog.open(ReviewRegisterComponent, {
+      width: '800px', // Tamanho do popup do formulário
+      height: 'auto',
+      data: {
+        auxReview: aux
+      }
+    });
   }
 
   logout(): void {
@@ -63,7 +78,7 @@ export class ReviewsListComponent {
   list(): void {
     this.reviewService.list()
       .then(result => {
-        this.reviews = result;
+        this.reviews = result.reverse();
         console.log(this.reviews);
       })
       .catch(error => this.errorHandler.handle(error));
@@ -74,8 +89,10 @@ export class ReviewsListComponent {
       message: 'Excluir permanentemente? Esta ação não pode ser desfeita.',
       accept: () => {
         this.remove(review);
+        location.reload();
       }
     });
+    
   }
 
   search(page: number = 0): void {

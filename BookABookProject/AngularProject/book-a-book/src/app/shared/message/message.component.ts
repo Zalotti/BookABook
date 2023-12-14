@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   template: `
   <div *ngIf="hasError()" class="p-message p-message-error">
   {{ text }}
-</div>
+  </div>
   `,
   styles: [`
   .p-message-error {

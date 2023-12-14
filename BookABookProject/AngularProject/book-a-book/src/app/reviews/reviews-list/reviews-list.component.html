@@ -7,14 +7,13 @@
         <span class="spanbook">BookABook</span>
         <!-- {{ auth.jwtPayload?.name }} -->
         <span class="spacer"></span>
-
+        {{username}}
         <button mat-icon-button (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>
         </button>
       </div>
     </mat-toolbar>
   </header>
-
   <!-- Botão para adicionar uma review  -->
   <div class="add-review">
     <button class="review" (click)="openReviewForm()">Adicionar review</button>
@@ -26,8 +25,9 @@
   <div *ngFor="let review of reviews" class="card" style="background-color: #323f7a ;">
 
     <div class="icon-container">
-      <mat-icon class="edit-icon" >edit</mat-icon>
-      <mat-icon class="delete-icon" >delete</mat-icon>
+      <mat-icon style="color: white;" (click)="edit(review.id)" class="edit-icon" *ngIf="review.user.id == auth.jwtPayload?.user_id">edit</mat-icon>
+      <mat-icon style="color: red;" (click)="confirmRemoval(review)" class="delete-icon" *ngIf="review.user.id == auth.jwtPayload?.user_id">delete</mat-icon>
+      
     </div>
 
     <!-- Título da Review -->
