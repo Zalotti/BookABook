@@ -24,6 +24,11 @@
               <!-- Campo da review do livro -->
                 <textarea class="input_review" matInput placeholder="Escreva sua review" name="description"
                   [(ngModel)]="review.description" required aria-label="Review do livro"></textarea>
+
+              <!-- Campo da observação do livro -->
+                  <textarea class="input_observation" matInput placeholder="Adicione suas observações" name="observation"
+                  [(ngModel)]="review.observation" aria-label="Observação"></textarea>
+                
       
               <!-- Dropdown categoria do livro -->
               <select id="categoria" name="category" [(ngModel)]="review.category" required>

@@ -11,6 +11,17 @@ body, html {
     height: auto;
   }
 
+  .logoheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+
   .mat-toolbar {
     background-color: #323f7a;
     color: white;
@@ -133,3 +144,5 @@ body, html {
     text-align: center;
     color: #323f7a;
   }
+
+  
