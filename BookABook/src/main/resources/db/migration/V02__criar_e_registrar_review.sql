@@ -3,7 +3,7 @@ CREATE TABLE review (
     image VARCHAR(250),
 	description VARCHAR(8000) NOT NULL,
     category VARCHAR(20) NOT NULL,
-    rate VARCHAR(25) NOT NULL, 
+    rate BIGINT(20) NOT NULL, 
     review_name VARCHAR(250) NOT NULL, 
     book_name VARCHAR(250) NOT NULL, 
 	review_date DATE NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE review (
     FOREIGN KEY (user_id) REFERENCES user(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO review (review_name, book_name, image, rate, category, description, observation, review_date, user_id) values ('Uma Jornada por Westeros, Parte 1', 'Guerra dos Tronos, Livro 1', 'https://down-br.img.susercontent.com/file/795b83ca34e20790c83811961c9868c6', 'MUITO_ALTA', 'FANTASIA', 
+INSERT INTO review (review_name, book_name, image, rate, category, description, observation, review_date, user_id) values ('Uma Jornada por Westeros, Parte 1', 'Guerra dos Tronos, Livro 1', 'https://down-br.img.susercontent.com/file/795b83ca34e20790c83811961c9868c6', 5, 'FANTASIA', 
 '"A Guerra dos Tronos" é o primeiro livro da aclamada série "As Crônicas de Gelo e Fogo" escrita por George R. R. Martin. Publicado em 1996, o livro rapidamente se tornou um fenômeno literário e deu início a uma série de sucesso que viria a ser adaptada para a famosa série de televisão "Game of Thrones".
 
 A trama do livro é uma intrincada teia de política, intriga e fantasia, ambientada em um mundo fictício onde diferentes casas nobres lutam pelo controle do Trono de Ferro e, por conseguinte, do reino de Westeros. O enredo é construído em torno de personagens complexos e multifacetados, cada um com seus próprios objetivos e motivações. Martin tece uma narrativa envolvente, onde a imprevisibilidade e a brutalidade estão sempre à espreita.
