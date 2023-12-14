@@ -24,6 +24,12 @@
 <!-- Seção para exibir as reviews  -->
 <div class="reviews-container" >
   <div *ngFor="let review of reviews" class="card" style="background-color: #323f7a ;">
+
+    <div class="icon-container">
+      <mat-icon class="edit-icon" >edit</mat-icon>
+      <mat-icon class="delete-icon" >delete</mat-icon>
+    </div>
+
     <!-- Título da Review -->
     <h1 class="titulo" style="color: aliceblue;">{{ review.review_name }}</h1>
     <div class="avaliacao" style="margin: auto; width: fit-content;">
