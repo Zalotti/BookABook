@@ -1,6 +1,7 @@
 package br.edu.ifsp.arq.dw2s6.bookabook.domain.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "review")
@@ -28,7 +31,8 @@ public class Review {
 	 @NotNull
 	 private String description;
 	 @NotNull
-	 private Date review_date;
+	 @JsonFormat(pattern = "dd/MM/yyyy")
+	 private LocalDate review_date;
 	 @NotNull
 	 private String observation; 
 	 //Referencia Usuário
@@ -60,10 +64,10 @@ public class Review {
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		public Date getReview_date() {
+		public LocalDate getReview_date() {
 			return review_date;
 		}
-		public void setReview_date(Date review_date) {
+		public void setReview_date(LocalDate review_date) {
 			this.review_date = review_date;
 		}
 		public String getObservation() {

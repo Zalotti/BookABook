@@ -8,7 +8,7 @@
         <!-- {{ auth.jwtPayload?.name }} -->
         <span class="spacer"></span>
 
-        <button mat-icon-button >
+        <button mat-icon-button (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>
         </button>
       </div>
@@ -22,15 +22,17 @@
 
 
 <!-- Seção para exibir as reviews  -->
-  <div class="reviews-container">
-  <div *ngFor="let review of reviews" class="card">
-<!-- Título da Review -->
-    <h1 class="titulo">{{ review.review_name }}</h1>
+<div class="reviews-container" >
+  <div *ngFor="let review of reviews" class="card" style="background-color: #323f7a ;">
+    <!-- Título da Review -->
+    <h1 class="titulo" style="color: aliceblue;">{{ review.review_name }}</h1>
     <div class="avaliacao" style="margin: auto; width: fit-content;">
       <div class="estrelas" *ngFor="let index of [1, 2, 3, 4, 5]" tabindex="0" >
         <mat-icon [style.color]="review.rate >= index ? 'gold' : 'gray'" aria-hidden="true">star</mat-icon>
       </div>
     </div>
+
+    <div style="background-color: aliceblue;">
       <!-- Seção do usuário -->
       <div class="user">
         <div class="user-text">
@@ -57,6 +59,7 @@
           <p class="reviewobs"> <span>Observações:</span> <br>{{ review.observation }}</p>
         </div>
       </div>
+    </div>
   </div>
   
 

@@ -44,7 +44,7 @@ public class ReviewResource {
 	//POST
 		@PostMapping
 		@ResponseStatus(HttpStatus.CREATED)
-		@PreAuthorize("hasAuthority('ROLE_REGISTER_ACTIVITY') and #oauth2.hasScope('write')")
+		//@PreAuthorize("hasAuthority('ROLE_REGISTER_ACTIVITY') and #oauth2.hasScope('write')")
 		public Review create(@Valid @RequestBody Review review) {
 			return reviewRepository.save(review);
 		}

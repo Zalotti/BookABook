@@ -1,5 +1,6 @@
 import { ReviewRegisterComponent } from './../review-register/review-register.component';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 //import { ConfirmationService, LazyLoadEvent, MessageService } from 'primeng/api';
@@ -36,7 +37,7 @@ export class ReviewsListComponent {
     private reviewService: ReviewService,
     // private confirmation: ConfirmationService,
     //private messageService: MessageService,
-    //private errorHandler: ErrorHandlerService,
+    private router: Router,
     private confirmation: ConfirmationService,
     private messageService: MessageService,
     private title: Title,
@@ -51,7 +52,13 @@ export class ReviewsListComponent {
     this.list();
   }
 
-  
+  logout(): void {
+    this.auth.logout()
+      .then(() => {
+        this.router.navigate(['/login']);
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
   list(): void {
     this.reviewService.list()

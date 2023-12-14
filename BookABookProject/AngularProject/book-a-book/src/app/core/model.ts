@@ -37,7 +37,7 @@ export class Review {
         book_name: review.book_name,
         observation: review.observation,
         rate: review.rate,
-        review_date: moment(review.review_date).format('DD/MM/YYYY'),
+        review_date: moment(review.review_date).format("DD/MM/YYYY"),
         user: review.user
     }
   }

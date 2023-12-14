@@ -71,11 +71,47 @@ export class ReviewRegisterComponent {
 
   save(reviewForm: NgForm) {
     //edit
-    reviewForm.form.value.rate = this.rating;
-    reviewForm.form.value.user = this.auth.jwtPayload?.user;
-    reviewForm.form.value.review_date = new Date();
-    reviewForm.form.value.review_name = 'teste';
-    reviewForm.form.value.observation = 'teste';
+    this.review.rate = this.rating;
+//    reviewForm.form.value.user = this.auth.jwtPayload?.user;
+    this.review.review_date = new Date();
+    
+    switch(this.review.category) {
+      case "Fantasia":
+        this.review.category = 'FANTASIA';
+        break;
+      case "Ficção":
+        this.review.category = 'FICCAO';
+        break;
+      case "Horror":
+        this.review.category = 'HORROR';
+        break;
+      case "Suspense":
+        this.review.category = 'SUSPENSE';
+        break;
+      case "Literatura Infantil":
+        this.review.category = 'INFANTIL';
+        break;
+      case "Acadêmico":
+        this.review.category = 'ACADEMICO';
+        break;
+      case "Biografia":
+        this.review.category = 'BIOGRAFICO';
+        break;
+      case "Romance":
+        this.review.category = 'ROMANCE';
+        break;
+      case "HQ":
+        this.review.category = 'HQ';
+        break;
+      case "Literatura Nacional":
+        this.review.category = 'NACIONAL';
+        break;
+      case "Outros":
+        this.review.category = 'OUTROS';
+        break;
+      default:
+        this.review.category = 'OUTROS';
+    }
 
     console.log(reviewForm.form.value)
     if (this.editing) {
@@ -99,7 +135,7 @@ export class ReviewRegisterComponent {
       .then(addedReview => {
         this.messageService.add({ severity: 'success', detail: 'Review adicionada.' });
         this.loadReview(addedReview.id);
-        this.router.navigate(['/reviews', addedReview.id]);
+        this.router.navigate(['/reviews']);
       })
       .catch(error => this.errorHandler.handle(error));
   }
