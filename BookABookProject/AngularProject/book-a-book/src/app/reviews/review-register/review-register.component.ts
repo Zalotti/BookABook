@@ -20,7 +20,7 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class ReviewRegisterComponent {
-  review = new Review(this.auth.jwtPayload?.user_id);
+  review = new Review(this.auth.jwtPayload?.user_id);  
 
   constructor(private reviewService: ReviewService,
     private router: Router,
@@ -70,6 +70,14 @@ export class ReviewRegisterComponent {
   }
 
   save(reviewForm: NgForm) {
+    //edit
+    reviewForm.form.value.rate = this.rating;
+    reviewForm.form.value.user = this.auth.jwtPayload?.user;
+    reviewForm.form.value.review_date = new Date();
+    reviewForm.form.value.review_name = 'teste';
+    reviewForm.form.value.observation = 'teste';
+
+    console.log(reviewForm.form.value)
     if (this.editing) {
       this.updateReview(reviewForm);
     } else {

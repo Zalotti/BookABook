@@ -12,15 +12,15 @@ export class User {
 
 export class Review {
   id!: number;
-  image?: string;
-  description!: string;
-  category?: string; //o ideal seria uma dropbox
-  review_name!: string;
+  image!: string;
+  description?: string;
+  category!: string; //o ideal seria uma dropbox
+  review_name?: string;
   book_name!: string;
-  observation!: string;
-  rate?: number;
+  observation?: string;
+  rate!: number;
   review_date!: Date;
-  user: User;
+  user: any;
 
   constructor(user_id: number){
     this.user = new User();

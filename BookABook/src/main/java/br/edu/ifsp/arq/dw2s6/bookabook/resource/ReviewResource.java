@@ -43,7 +43,9 @@ public class ReviewResource {
 	//Cria Review
 	//POST
 		@PostMapping
-		public Review create(@RequestBody Review review, HttpServletResponse response) {
+		@ResponseStatus(HttpStatus.CREATED)
+		@PreAuthorize("hasAuthority('ROLE_REGISTER_ACTIVITY') and #oauth2.hasScope('write')")
+		public Review create(@Valid @RequestBody Review review) {
 			return reviewRepository.save(review);
 		}
 		

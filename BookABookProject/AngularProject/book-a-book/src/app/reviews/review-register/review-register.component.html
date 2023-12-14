@@ -2,49 +2,55 @@
 <div class="up">
 <h1 class="title">{{ editing ? 'Edição de' : 'Nova' }} Review</h1>
 </div>
-
-<a routerLink="/reviews">Voltar</a> 
-
 <div class="popup-container">
   <div class="popup-form">
     <form #reviewForm="ngForm" (ngSubmit)="save(reviewForm)">
-      <div class="inputs">
-         <!-- Campo do titulo do livro -->
-         <input class="input_review_name" placeholder="Digite o título de sua review" name="review" [(ngModel)]="review.review_name" required
-         aria-label="Título da review" />
-        <!-- Campo do titulo do livro -->
-          <input class="input_title" placeholder="Digite o título do livro" name="titulo" [(ngModel)]="review.book_name" required
-            aria-label="Título do livro" />
-
-        <!-- Campo da review do livro -->
-          <textarea class="input_review" matInput placeholder="Escreva sua review" name="review"
-            [(ngModel)]="review.description" required aria-label="Review do livro"></textarea>
-
-        <!-- Dropdown categoria do livro -->
-        <select id="categoria" name="categoria" [(ngModel)]="review.category" required>
-          <option [ngValue]="undefined" disabled selected>Escolha a categoria do livro...</option>
-          <option *ngFor="let categoria of categories" [value]="categoria">
-            {{ categoria }}
-          </option>
-        </select>
-
-
-
-        <!-- Campo adicionar link da capa do livro -->
-          <input class="input_link_capa" placeholder="Adicione um link da capa do seu livro" type="url" name="capaLivro"
-            [(ngModel)]="review.image" aria-label="Link da capa do livro" />
-      </div>
-
-
-      <!-- Campo de avaliação de estrelas -->
-      <div class="avaliacao">
-        <p class="txtAvaliacao">Dê uma nota de avaliação para o livro:</p>
-        <div class="estrelas" *ngFor="let index of [1, 2, 3, 4, 5]" (click)="rateBook(index)" role="button" tabindex="0">
-          <mat-icon [style.color]="rating >= index ? 'gold' : 'gray'" aria-hidden="true">star</mat-icon>
-        </div>
-      </div>
-
-      <!-- Botão para enviar a revisão -->
+      <table>
+        <tr>
+          <td>
+            <div>
+              <img [src]="review.image" >
+            </div>
+          </td>
+          <td style="width: 500px;">
+            <div class="inputs">
+               <!-- Campo do titulo do livro -->
+               <input class="input_review_name" placeholder="Digite o título de sua review" name="review" [(ngModel)]="review.review_name" required
+               aria-label="Título da review" />
+              <!-- Campo do titulo do livro -->
+                <input class="input_title" placeholder="Digite o título do livro" name="titulo" [(ngModel)]="review.book_name" required
+                  aria-label="Título do livro" />
+      
+              <!-- Campo da review do livro -->
+                <textarea class="input_review" matInput placeholder="Escreva sua review" name="description"
+                  [(ngModel)]="review.description" required aria-label="Review do livro"></textarea>
+      
+              <!-- Dropdown categoria do livro -->
+              <select id="categoria" name="category" [(ngModel)]="review.category" required>
+                <option [ngValue]="undefined" disabled selected>Escolha a categoria do livro...</option>
+                <option *ngFor="let categoria of categories" [value]="categoria">
+                  {{ categoria }}
+                </option>
+              </select>
+      
+              <!-- Campo adicionar link da capa do livro -->
+                <input class="input_link_capa" placeholder="Adicione um link da capa do seu livro" type="url" name="image"
+                  [(ngModel)]="review.image" aria-label="Link da capa do livro" />
+      
+            </div>
+      
+            <!-- Campo de avaliação de estrelas -->
+            <div class="avaliacao">
+              <p class="txtAvaliacao">Dê uma nota de avaliação para o livro:</p>
+              <div class="estrelas" *ngFor="let index of [1, 2, 3, 4, 5]" (click)="rateBook(index)" role="button" tabindex="0">
+                <mat-icon [style.color]="rating >= index ? 'gold' : 'gray'" aria-hidden="true">star</mat-icon>
+              </div>
+            </div>
+      
+            <!-- Botão para enviar a revisão -->
+          </td>
+        </tr>
+      </table>
       <button class="enviar" type="submit" [disabled]="reviewForm.invalid">
         Enviar Review
       </button>

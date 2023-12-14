@@ -66,6 +66,7 @@ export class ReviewService {
   }
 
   add(review: Review): Promise<Review> {
+    console.log(review)
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json');
 

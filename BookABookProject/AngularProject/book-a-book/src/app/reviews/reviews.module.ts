@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { SecurityModule } from './../security/security.module';
-
+import { NgOptimizedImage } from '@angular/common'
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
@@ -39,6 +39,7 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgOptimizedImage,
     SharedModule,
     RouterModule,
     MatIconModule,
