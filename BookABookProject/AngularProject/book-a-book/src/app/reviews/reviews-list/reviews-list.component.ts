@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
+
 @Component({
   selector: 'app-reviews-list',
   templateUrl: 'reviews-list.component.html',
@@ -104,5 +105,7 @@ export class ReviewsListComponent {
       height: 'auto',
     });
   }
+
+
 }
 

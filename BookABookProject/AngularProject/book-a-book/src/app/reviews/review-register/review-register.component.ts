@@ -103,6 +103,14 @@ export class ReviewRegisterComponent {
       })
       .catch(error => this.errorHandler.handle(error));
   }
+
+  logout(): void {
+    this.auth.logout()
+      .then(() => {
+        this.router.navigate(['/login']);
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 }
 
 

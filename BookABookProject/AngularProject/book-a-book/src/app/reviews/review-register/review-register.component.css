@@ -118,3 +118,10 @@ input, textarea {
 .enviar:hover {
   background: #583d82;
 }
+
+.input_observation {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
