@@ -21,7 +21,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export class ReviewRegisterComponent {
   review = new Review(this.auth.jwtPayload?.user_id);  
-  private aux: Review;
+ // private aux: Review;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: { auxReview: Review },
@@ -35,7 +35,7 @@ export class ReviewRegisterComponent {
     
 
   ) {
-    this.aux = data.auxReview;
+  //  this.aux = data.auxReview;
   }
   //Arthur 
   selectedCategory: string = ''; // ou o tipo apropriado para sua categoria
